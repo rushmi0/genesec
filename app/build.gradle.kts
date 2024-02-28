@@ -52,6 +52,26 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
 
+//    implementation("androidx.appcompat:appcompat:1.6.1")
+//    implementation("com.google.android.material:material:1.5.0")
+//    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j
+    implementation("org.slf4j:jcl-over-slf4j:2.0.11")
+
+
+    implementation("org.flowable:flowable-engine:7.0.1")
+
+//    implementation("io.micronaut:micronaut-http-client:4.3.9")
+//    implementation("io.micronaut:micronaut-inject-java:1.1.2")
+
+
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+
+    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
+
     testImplementation("junit:junit:4.13.2")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -66,8 +86,8 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation("com.github.clans:fab:1.6.4")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-    // https://mvnrepository.com/artifact/fr.acinq.bitcoin/bitcoin-kmp
     implementation("fr.acinq.bitcoin:bitcoin-kmp:0.18.0")
 
     val secp256k1_version = "0.14.0"
@@ -78,23 +98,11 @@ dependencies {
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
-
-    // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
-
-    // optional - RxJava2 support for Room
     implementation("androidx.room:room-rxjava2:$room_version")
-
-    // optional - RxJava3 support for Room
     implementation("androidx.room:room-rxjava3:$room_version")
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
     implementation("androidx.room:room-guava:$room_version")
-
-    // optional - Test helpers
     testImplementation("androidx.room:room-testing:$room_version")
-
-    // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$room_version")
 
 }
