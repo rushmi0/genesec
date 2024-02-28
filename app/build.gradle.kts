@@ -50,32 +50,28 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
     implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
 
-//    implementation("androidx.appcompat:appcompat:1.6.1")
-//    implementation("com.google.android.material:material:1.5.0")
-//    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // ------------------------------------------------------------------------
 
-    // https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j
-    implementation("org.slf4j:jcl-over-slf4j:2.0.11")
+    // Micronaut tool
+    implementation("io.micronaut:micronaut-inject-java:1.1.2")
 
-
-    implementation("org.flowable:flowable-engine:7.0.1")
-
-//    implementation("io.micronaut:micronaut-http-client:4.3.9")
-//    implementation("io.micronaut:micronaut-inject-java:1.1.2")
-
+    // ------------------------------------------------------------------------
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
-    implementation("jakarta.inject:jakarta.inject-api:2.0.1")
-
-    testImplementation("junit:junit:4.13.2")
-
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // ------------------------------------------------------------------------
 
     // Fragment Navigation
     val navVersion = "2.7.6"
@@ -86,13 +82,14 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation("com.github.clans:fab:1.6.4")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // ------------------------------------------------------------------------
 
-    implementation("fr.acinq.bitcoin:bitcoin-kmp:0.18.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
     val secp256k1_version = "0.14.0"
     implementation("fr.acinq.secp256k1:secp256k1-kmp:$secp256k1_version")
     implementation("fr.acinq.secp256k1:secp256k1-kmp-jni-jvm:$secp256k1_version")
+    implementation("fr.acinq.bitcoin:bitcoin-kmp:0.18.0")
 
     // Room Database
     val room_version = "2.6.1"
