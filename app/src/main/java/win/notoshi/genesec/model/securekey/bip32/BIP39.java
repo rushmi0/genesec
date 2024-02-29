@@ -1,4 +1,4 @@
-package win.notoshi.genesec.model.utils;
+package win.notoshi.genesec.model.securekey.bip32;
 
 public class BIP39 {
 

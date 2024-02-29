@@ -1,6 +1,5 @@
-package win.notoshi.genesec.model.securekey
+package win.notoshi.genesec.model.securekey.bip32
 
-import win.notoshi.genesec.model.utils.BIP39
 import win.notoshi.genesec.model.utils.ShiftTo.BinaryToByteArray
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBinary
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
