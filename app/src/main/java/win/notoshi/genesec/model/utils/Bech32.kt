@@ -1,8 +1,8 @@
-package win.notoshi.genesec.utils
+package win.notoshi.genesec.model.utils
 
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.io.BaseEncoding
-import win.notoshi.genesec.utils.ShiftTo.ByteArrayToHex
-import win.notoshi.genesec.utils.ShiftTo.HexToByteArray
+import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
+import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 
 
 // Copyright (c) 2020 Figure Technologies Inc.

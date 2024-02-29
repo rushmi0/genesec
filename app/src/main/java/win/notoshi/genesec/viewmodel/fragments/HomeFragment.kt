@@ -1,4 +1,4 @@
-package win.notoshi.genesec.fragments
+package win.notoshi.genesec.viewmodel.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

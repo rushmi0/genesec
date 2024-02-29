@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="win.notoshi.genesec.fragments.HomeFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
