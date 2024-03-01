@@ -9,7 +9,7 @@ import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
 @Introspected
-class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
+open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     /*

@@ -1,14 +1,13 @@
 package win.notoshi.genesec.securekey
 
+
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.securekey.ECPublicKey.pointRecovery
-import win.notoshi.genesec.securekey.EllipticCurve.multiplyPoint
 import java.math.BigInteger
 
 @Introspected
-class ECDHkey {
+class ECDHkey(curve: CurveParamsProvider) : ECPublicKey(curve) {
 
     /**
      * `ECDH Key` มีชื่อเรียกเฉพาะคือ `ECDH Shared Secret` หรือ `Elliptic Curve Diffie-Hellman Shared Secret`
