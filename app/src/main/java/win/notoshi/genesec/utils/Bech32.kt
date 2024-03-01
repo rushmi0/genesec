@@ -42,7 +42,7 @@ data class Bech32Data(val hrp: String, val fiveBitData: ByteArray) {
     /**
      * The encapsulated data returned as a Hexadecimal string
      */
-    val hexData = BaseEncoding.base16().encode(this.data)
+    val hexData = BaseEncoding.base16().encode(this.data).toLowerCase()
 
     /**
      * Address is the Bech32 encoded value of the data prefixed with the human readable portion and

@@ -1,11 +1,10 @@
-package win.notoshi.genesec.test
+package win.notoshi.genesec
 
+import junit.framework.TestCase
 import org.junit.Test
+import win.notoshi.genesec.model.utils.Bech32
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import win.notoshi.genesec.model.utils.toBech32Data
-
-import junit.framework.TestCase.assertEquals
-import win.notoshi.genesec.model.utils.Bech32
 
 class Bech32Test {
 
@@ -20,14 +19,14 @@ class Bech32Test {
         val bech32Data = pubKeyBytes.toBech32Data(hrp)
         val nsec = bech32Data.address
 
-        val privOrigi = Bech32.decode(nsec).hexData.lowercase()
+        val privOrigi = Bech32.decode(nsec).hexData
 
-        assertEquals(
+        TestCase.assertEquals(
             "nsec187fgw84vl3xnfcm5g8flt3nzm4dwghnhgjeqrf3k0ksem3g6876q9ryerx",
             nsec
         )
 
-        assertEquals(
+        TestCase.assertEquals(
             priv,
             privOrigi
         )

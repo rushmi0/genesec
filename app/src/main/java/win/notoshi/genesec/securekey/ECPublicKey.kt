@@ -1,12 +1,12 @@
-package win.notoshi.genesec.model.securekey
+package win.notoshi.genesec.securekey
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.model.securekey.EllipticCurve.A
-import win.notoshi.genesec.model.securekey.EllipticCurve.B
-import win.notoshi.genesec.model.securekey.EllipticCurve.P
-import win.notoshi.genesec.model.securekey.EllipticCurve.multiplyPoint
+import win.notoshi.genesec.securekey.EllipticCurve.A
+import win.notoshi.genesec.securekey.EllipticCurve.B
+import win.notoshi.genesec.securekey.EllipticCurve.P
+import win.notoshi.genesec.securekey.EllipticCurve.multiplyPoint
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBigInteger
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray

@@ -1,10 +1,10 @@
-package win.notoshi.genesec.model.securekey
+package win.notoshi.genesec.securekey
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.model.securekey.ECPublicKey.pointRecovery
-import win.notoshi.genesec.model.securekey.EllipticCurve.multiplyPoint
+import win.notoshi.genesec.securekey.ECPublicKey.pointRecovery
+import win.notoshi.genesec.securekey.EllipticCurve.multiplyPoint
 import java.math.BigInteger
 
 @Introspected

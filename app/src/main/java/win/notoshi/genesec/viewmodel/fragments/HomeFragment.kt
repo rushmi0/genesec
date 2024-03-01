@@ -30,23 +30,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         setUIEvent()
-        observe()
         return binding.root
     }
 
 
     private fun observe() {
         lifecycleScope.launch {
-            viewModel.count.collect{
-                binding.countBTN.text = "Count ${it}"
+            viewModel.count.collect { count ->
+                binding.countBTN.text = "Count $count"
             }
         }
     }
+
 
     private fun setUIEvent() {
         binding.countBTN.setOnClickListener {
             viewModel.add()
         }
+
+        observe()
     }
 
 }

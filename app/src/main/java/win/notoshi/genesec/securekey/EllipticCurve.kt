@@ -1,8 +1,9 @@
-package win.notoshi.genesec.model.securekey
+package win.notoshi.genesec.securekey
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
+import jakarta.inject.Inject
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBigInteger
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
@@ -16,10 +17,7 @@ import java.math.BigInteger
 * < Elliptic Curve Cryptography >
 * */
 @Introspected
-object EllipticCurve {
-
-    // * กำหนดค่าพื้นฐานของเส้นโค้งวงรี โดยใส่ชื่อเส้นโค้งวงรีที่ต้องการใช้งาน
-    private val curve = Secp256K1.getCurveParams()
+class EllipticCurve @Inject constructor(private val curve: CurveParamsProvider) {
 
     // * ค่า A, B, P, G ที่ใช้ในการคำนวณ
     val A: BigInteger = curve.A
