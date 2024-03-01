@@ -10,7 +10,7 @@ object ECKeyProvider {
 
     private lateinit var keyProvider: ECKeyFactory
 
-    fun setKeyProvider(ecKeyFactory: ECKeyFactory) {
+    fun initialize(ecKeyFactory: ECKeyFactory) {
         keyProvider = ecKeyFactory
     }
 
@@ -30,9 +30,10 @@ object ECKeyProvider {
         return keyProvider.recoverFullKey(this)
     }
 
-    fun BigInteger.toPointField(): PointField {
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    fun String.toPointField(): PointField {
         checkInitialized()
-        return keyProvider.generatePoint(this)
+        return keyProvider.pointRecovery(this)
     }
 
     fun PointField.verifyPoint(): Boolean {
@@ -42,7 +43,7 @@ object ECKeyProvider {
 
     private fun checkInitialized() {
         if (!::keyProvider.isInitialized) {
-            throw IllegalStateException("ECKeyProvider not initialized. Call setKeyProvider() first.")
+            throw IllegalStateException("ECKeyProvider not initialized. Call initialize() first.")
         }
     }
 }

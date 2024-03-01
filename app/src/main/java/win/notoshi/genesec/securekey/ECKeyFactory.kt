@@ -146,12 +146,12 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     // `keyRecovery` ใช้สำหรับแปรง Public Key Hex ให้อยู่ในรูปแบบของ พิกัดบนเส้นโค้งวงรี (x, y)
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    fun String.pointRecovery(): PointField {
+    //@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    fun pointRecovery(key: String): PointField {
 
-        return when (this.HexToByteArray().size) {
+        return when (key.HexToByteArray().size) {
             33 -> {
-                publicKeyGroup(this)
+                publicKeyGroup(key)
             }
             else -> {
                 // แจ้งข้อผิดพลาดเมื่อขนาดของ public key ไม่ถูกต้อง

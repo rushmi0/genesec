@@ -4,6 +4,7 @@ package win.notoshi.genesec.securekey
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
+import win.notoshi.genesec.securekey.ECKeyProvider.toPointField
 import java.math.BigInteger
 
 @Introspected
@@ -25,7 +26,7 @@ class ECDHkey(curve: CurveParamsProvider) : ECKeyFactory(curve) {
     ): String {
 
         // แปลง public key ให้อยู่ในรูปของ PointField นั้นก็คือ (x, y) ซึ่งเป็นพิกัดบนเส้นโค้งวงรี
-        val point: PointField = publicKey.pointRecovery()
+        val point: PointField = publicKey.toPointField()
 
         // คำนวณค่าจุดบนเส้นโค้งวงรีจาก private key โดยใช้เมธอด `generatePoint` ที่เขียนไว้ใน `ECPublicKey.kt`
         val curvePoint = multiplyPoint(
