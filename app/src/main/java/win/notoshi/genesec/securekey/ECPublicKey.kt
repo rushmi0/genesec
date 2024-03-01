@@ -3,17 +3,13 @@ package win.notoshi.genesec.securekey
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.securekey.EllipticCurve.A
-import win.notoshi.genesec.securekey.EllipticCurve.B
-import win.notoshi.genesec.securekey.EllipticCurve.P
-import win.notoshi.genesec.securekey.EllipticCurve.multiplyPoint
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBigInteger
 import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
 @Introspected
-object ECPublicKey {
+class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     /*

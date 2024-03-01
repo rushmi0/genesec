@@ -17,7 +17,7 @@ import java.math.BigInteger
 * < Elliptic Curve Cryptography >
 * */
 @Introspected
-class EllipticCurve @Inject constructor(private val curve: CurveParamsProvider) {
+open class EllipticCurve @Inject constructor(private val curve: CurveParamsProvider) {
 
     // * ค่า A, B, P, G ที่ใช้ในการคำนวณ
     val A: BigInteger = curve.A
