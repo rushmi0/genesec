@@ -8,17 +8,17 @@ import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
+
+
+/*
+* ปรับแต่ง Public key
+* */
 @Introspected
-open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
+open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     /*
-    * ปรับแต่ง Public key
-    * */
-
-
-    /*
-    * `isPointOnCurve` Method นี้ใช้เพื่อตรวจสอบว่าจุดที่รับเข้ามานั้นอยู่บนเส้นโค้งวงรีหรือไม่
+    * ใช้เพื่อตรวจสอบว่าจุดที่รับเข้ามานั้นอยู่บนเส้นโค้งวงรีหรือไม่
     * โดยการรับค่า point เพื่อนำไปคำนวณตามสมการเส้นโค้งวงรี และตรวจสอบว่าสมการที่ได้มีค่าเท่ากันหรือไม่ และจะคืนค่าเป็น true หากสมการมีค่าเท่ากัน
     * */
     fun isPointOnCurve(point: PointField?): Boolean {
@@ -38,7 +38,7 @@ open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     // รับค่า private key และคืนค่า public key ในรูปแบบพิกัดบนเส้นโค้งวงรี พิกัด x และ y จะเป็นค่า BigInteger เลขฐาน 10
-    private fun generatePoint(k: BigInteger): PointField {
+    fun generatePoint(k: BigInteger): PointField {
         // คำนวณค่าพิกัดบนเส้นโค้งวงรีจาก private key
         val point = multiplyPoint(k)
 
@@ -55,14 +55,14 @@ open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
     // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
 
 
-    private fun pubKeyPoint(k: BigInteger): String {
+    fun pubKeyPoint(k: BigInteger): String {
         try {
             val point: PointField = multiplyPoint(k)
             val xHex: String = point.x.toString(16)
             val yHex: String = point.y.toString(16)
 
-            val xSize: Int = xHex.HexToByteArray().size //xHex.length
-            val ySize: Int = yHex.HexToByteArray().size//yHex.length
+            val xSize: Int = xHex.HexToByteArray().size
+            val ySize: Int = yHex.HexToByteArray().size
 
             val max = maxOf(xSize, ySize)
 
@@ -90,7 +90,7 @@ open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
     // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
 
 
-    private fun groupSelection(publicKey: String): String {
+    fun groupSelection(publicKey: String): String {
 
 
         val keyByteArray = publicKey.HexToByteArray().copyOfRange(1, publicKey.HexToByteArray().size)
@@ -122,7 +122,7 @@ open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private fun publicKeyGroup(xGroupOnly: String): PointField {
+    fun publicKeyGroup(xGroupOnly: String): PointField {
 
         val byteArray = xGroupOnly.HexToByteArray()
         val xCoord = byteArray.copyOfRange(1, byteArray.size).ByteArrayToBigInteger()
@@ -161,24 +161,5 @@ open class ECPublicKey(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
     }
 
-
-    fun BigInteger.toPublicKey(): String {
-        return pubKeyPoint(this)
-    }
-
-    // `compressed` ใช้สำหรับแปรง Public Key Hex
-    fun String.compressed(): String {
-        return groupSelection(this)
-    }
-
-    // `toPoint` ใช้สำหรับแปรง Private Key รูปแบบเลขฐาน 10 ให้อยู่ในรูปแบบของ พิดกัดบนเส้นโค้งวงรี (x, y)
-    fun BigInteger.toPointField(): PointField {
-        return generatePoint(this)
-    }
-
-    // `verifyPoint` ใช้ในกรณีที่ต้องการตรวจสอบว่าจุดบนเส้นโค้งวงรีนั้นอยู่บนเส้นโค้งวงรีหรือไม่
-    fun PointField.verifyPoint(): Boolean {
-        return isPointOnCurve(this)
-    }
 
 }

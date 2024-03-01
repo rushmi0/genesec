@@ -14,7 +14,7 @@ import java.math.BigInteger
 * https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc
 * https://learnmeabitcoin.com/technical/ecdsa
 *
-* < Elliptic Curve Cryptography >
+* < Elliptic Curve Cryptography > ECKeyFactory ECCKeyProvider
 * */
 @Introspected
 open class EllipticCurve @Inject constructor(
@@ -138,7 +138,7 @@ open class EllipticCurve @Inject constructor(
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private fun decompressPublicKey(compressedPublicKey: String): PointField? {
+    fun recoverFullKey(compressedPublicKey: String): PointField? {
         try {
             // แปลง compressed public key ในรูปแบบ Hex เป็น ByteArray
             val byteArray = compressedPublicKey.HexToByteArray()
@@ -177,9 +177,5 @@ open class EllipticCurve @Inject constructor(
 
     // ──────────────────────────────────────────────────────────────────────────────────────── \\
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    fun String.getDecompress(): PointField? {
-        return decompressPublicKey(this)
-    }
 
 }

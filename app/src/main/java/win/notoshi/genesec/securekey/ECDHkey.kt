@@ -7,7 +7,7 @@ import io.micronaut.core.annotation.Introspected
 import java.math.BigInteger
 
 @Introspected
-class ECDHkey(curve: CurveParamsProvider) : ECPublicKey(curve) {
+class ECDHkey(curve: CurveParamsProvider) : ECKeyFactory(curve) {
 
     /**
      * `ECDH Key` มีชื่อเรียกเฉพาะคือ `ECDH Shared Secret` หรือ `Elliptic Curve Diffie-Hellman Shared Secret`
