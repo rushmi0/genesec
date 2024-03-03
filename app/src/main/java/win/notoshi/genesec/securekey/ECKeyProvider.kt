@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
 import java.math.BigInteger
+import kotlin.random.Random
 
 @Introspected
 object ECKeyProvider {
@@ -12,6 +13,14 @@ object ECKeyProvider {
 
     fun initialize(ecKeyFactory: ECKeyFactory) {
         keyProvider = ecKeyFactory
+    }
+
+
+    fun String.toXPoint() : String {
+        checkInitialized()
+        return keyProvider.generatePoint(
+            BigInteger(this, 16)
+        )
     }
 
     fun BigInteger.toPublicKey(): String {
@@ -43,7 +52,20 @@ object ECKeyProvider {
 
     private fun checkInitialized() {
         if (!::keyProvider.isInitialized) {
-            throw IllegalStateException("ECKeyProvider not initialized. Call initialize() first.")
+            throw IllegalStateException(
+                """
+                    ECKeyProvider not initialized. Call initialize() first.
+                    
+                    Add the following code in your class:
+                    
+                    ```kotlin
+                    init {
+                        val ecKeyFactory = ECKeyFactory(Secp256K1)
+                        ECKeyProvider.initialize(ecKeyFactory)
+                    }
+                    ```
+                """.trimIndent()
+            )
         }
     }
 }

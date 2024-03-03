@@ -8,8 +8,6 @@ import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
 import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
-
-
 /*
 * ปรับแต่ง Public key
 * */
@@ -32,27 +30,6 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
 
         return leftSide == rightSide
     }
-
-
-    // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
-
-
-    // รับค่า private key และคืนค่า public key ในรูปแบบพิกัดบนเส้นโค้งวงรี พิกัด x และ y จะเป็นค่า BigInteger เลขฐาน 10
-    fun generatePoint(k: BigInteger): PointField {
-        // คำนวณค่าพิกัดบนเส้นโค้งวงรีจาก private key
-        val point = multiplyPoint(k)
-
-        // ตรวจสอบว่าจุดที่ได้มานั้นอยู่บนเส้นโค้งวงรีหรือไม่
-        if (!isPointOnCurve(point)) {
-            throw IllegalArgumentException("Invalid private key")
-        }
-
-        // คืนค่าพิกัดบนเส้นโค้งวงรี
-        return point
-    }
-
-
-    // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
 
 
     fun pubKeyPoint(k: BigInteger): String {
@@ -87,9 +64,6 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
     }
 
 
-    // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
-
-
     fun groupSelection(publicKey: String): String {
 
 
@@ -117,9 +91,6 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
     }
 
 
-    // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
-
-
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun publicKeyGroup(xGroupOnly: String): PointField {
@@ -140,13 +111,7 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
     }
 
 
-
-
-    // �� ──────────────────────────────────────────────────────────────────────────────────────── �� \\
-
-
-    // `keyRecovery` ใช้สำหรับแปรง Public Key Hex ให้อยู่ในรูปแบบของ พิกัดบนเส้นโค้งวงรี (x, y)
-    //@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    // ใช้สำหรับแปรง Public Key Hex ให้อยู่ในรูปแบบของ พิกัดบนเส้นโค้งวงรี (x, y)
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun pointRecovery(key: String): PointField {
 
@@ -160,6 +125,20 @@ open class ECKeyFactory(curve: CurveParamsProvider) : EllipticCurve(curve) {
             }
         }
 
+    }
+
+
+    fun generatePoint(k: BigInteger): String {
+        // คำนวณค่าพิกัดบนเส้นโค้งวงรีจาก private key
+        val point = multiplyPoint(k)
+
+        // ตรวจสอบว่าจุดที่ได้มานั้นอยู่บนเส้นโค้งวงรีหรือไม่
+        if (!isPointOnCurve(point)) {
+            throw IllegalArgumentException("Invalid private key")
+        }
+
+        // คืนค่าพิกัดบนเส้นโค้งวงรี
+        return point.x.toString(16)
     }
 
 
