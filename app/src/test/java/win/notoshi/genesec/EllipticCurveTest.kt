@@ -2,11 +2,12 @@ package win.notoshi.genesec
 
 import junit.framework.TestCase
 import org.junit.Test
-import win.notoshi.genesec.securekey.ECKeyFactory
+import win.notoshi.genesec.model.utils.ShiftTo.randomValue
 import win.notoshi.genesec.securekey.ECKeyProvider
 import win.notoshi.genesec.securekey.ECKeyProvider.compressed
 import win.notoshi.genesec.securekey.ECKeyProvider.toPointField
 import win.notoshi.genesec.securekey.ECKeyProvider.toPublicKey
+import win.notoshi.genesec.securekey.ECKeyFactory
 import win.notoshi.genesec.securekey.Secp256K1
 import java.math.BigInteger
 
@@ -22,7 +23,7 @@ class EllipticCurveTest {
     // https://learnmeabitcoin.com/technical/public-key
     @Test
     fun testPublicKey() {
-        val pubKey = priv.toPublicKey()
+        val pubKey: String = priv.toPublicKey()
 
         TestCase.assertEquals(
             pubKey,
@@ -40,7 +41,6 @@ class EllipticCurveTest {
         val pubKeyCompressed = "02d0a951954dc6a0167f5857dea80da2d3ee5d88d51a6a701ce75437c6923b37b7"
         val pointField = pubKeyCompressed.toPointField()
 
-        // Assert
         TestCase.assertEquals(
             pointField.x.toString(16),
             "d0a951954dc6a0167f5857dea80da2d3ee5d88d51a6a701ce75437c6923b37b7"
@@ -52,8 +52,19 @@ class EllipticCurveTest {
         )
     }
 
+
+
+
     @Test
     fun testConvertCompressedKey2UncompressedKey() {
 
+        for (i in 0 .. 30) {
+
+            val key = randomValue()
+            println("$key size:${key.length}")
+
+        }
+
     }
+
 }

@@ -15,6 +15,8 @@ class AppViewModelFactory(private val context: Context) : ViewModelProvider.Fact
             return NostrnsecModel(context) as T
         } else if (modelClass.isAssignableFrom(MnemonicModel::class.java)) {
             return MnemonicModel(context) as T
+        } else if (modelClass.isAssignableFrom(CountModelTest::class.java)) {
+            return CountModelTest(context) as T
         }
 
         throw IllegalArgumentException("UnknownViewModel")
