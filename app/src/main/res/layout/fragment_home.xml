@@ -64,7 +64,7 @@
                         android:layout_below="@+id/clothingImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/lato"
                         android:text="Nostr"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
@@ -101,7 +101,7 @@
                         android:layout_below="@+id/elecImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/lato"
                         android:text="Mnemonic"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
@@ -151,7 +151,7 @@
                         android:layout_below="@+id/homeImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/lato"
                         android:text="Contract"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
@@ -188,7 +188,7 @@
                         android:layout_below="@+id/beautyImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/lato"
                         android:text="Transaction"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
