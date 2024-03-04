@@ -5,18 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import androidx.navigation.fragment.findNavController
+import com.thekhaeng.pushdownanim.PushDownAnim
 import win.notoshi.genesec.R
 import win.notoshi.genesec.databinding.FragmentHomeBinding
-import win.notoshi.genesec.test.CountModelTest
-import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: CountModelTest
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,31 +20,47 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View? {
 
-        val factory = AppViewModelFactory(requireActivity())
-        viewModel = ViewModelProvider(this, factory)[CountModelTest::class.java]
-
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        setUIEvent()
+        toNostrPage()
+        toMnemonicPage()
+        toContractPage()
+        toTransaction()
         return binding.root
     }
 
-
-    private fun observe() {
-        lifecycleScope.launch {
-            viewModel.count.collect { count ->
-                binding.countBTN.text = "Count $count"
+    private fun toTransaction() {
+        PushDownAnim.setPushDownAnimTo(binding.transactionBTN)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransactionFragment())
             }
-        }
+    }
+
+    private fun toContractPage() {
+        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToContractFragment())
+            }
+    }
+
+    private fun toMnemonicPage() {
+        PushDownAnim.setPushDownAnimTo(binding.mnemonicBTN)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMnemonicFragment())
+            }
+    }
+
+    private fun toNostrPage() {
+        PushDownAnim.setPushDownAnimTo(binding.nostrBTN)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToNostrFragment())
+            }
     }
 
 
-    private fun setUIEvent() {
-        binding.countBTN.setOnClickListener {
-            viewModel.add()
-        }
-
-        observe()
-    }
 
 }

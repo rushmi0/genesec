@@ -111,4 +111,6 @@ dependencies {
     testImplementation("androidx.room:room-testing:$room_version")
     implementation("androidx.room:room-paging:$room_version")
 
+    implementation("com.github.thekhaeng:pushdown-anim-click:1.1.1")
+
 }
