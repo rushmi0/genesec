@@ -3,9 +3,9 @@ package win.notoshi.genesec.securekey
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBigInteger
-import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
-import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
+import win.notoshi.genesec.utils.ShiftTo.ByteArrayToBigInteger
+import win.notoshi.genesec.utils.ShiftTo.ByteArrayToHex
+import win.notoshi.genesec.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
 /*

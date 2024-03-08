@@ -1,10 +1,10 @@
 package win.notoshi.genesec.securekey.bip39
 
-import win.notoshi.genesec.model.utils.ShiftTo.BinaryToByteArray
-import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToBinary
-import win.notoshi.genesec.model.utils.ShiftTo.ByteArrayToHex
-import win.notoshi.genesec.model.utils.ShiftTo.HexToBinary
-import win.notoshi.genesec.model.utils.ShiftTo.SHA256
+import win.notoshi.genesec.utils.ShiftTo.BinaryToByteArray
+import win.notoshi.genesec.utils.ShiftTo.ByteArrayToBinary
+import win.notoshi.genesec.utils.ShiftTo.ByteArrayToHex
+import win.notoshi.genesec.utils.ShiftTo.HexToBinary
+import win.notoshi.genesec.utils.ShiftTo.SHA256
 import java.math.BigInteger
 import java.security.SecureRandom
 import javax.inject.Inject

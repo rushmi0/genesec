@@ -1,5 +1,6 @@
-package win.notoshi.genesec.model.utils
+package win.notoshi.genesec.utils
 
+import win.notoshi.genesec.model.utils.toBech32Data
 import java.math.BigInteger
 import java.security.MessageDigest
 
@@ -44,6 +45,12 @@ object ShiftTo {
 
     fun String.SHA256(): ByteArray {
         return toByteArray().SHA256()
+    }
+
+    fun String.bech32Encode(hrp: String) : String {
+        val keyBytes = this.HexToByteArray()
+        val bech32Data = keyBytes.toBech32Data(hrp)
+        return bech32Data.address
     }
 
 }

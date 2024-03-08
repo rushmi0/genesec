@@ -7,30 +7,160 @@
     android:layout_height="match_parent"
     tools:context=".viewmodel.fragments.NostrFragment">
 
-    <TextView
-        android:id="@+id/nostrText"
-        android:layout_width="153dp"
-        android:layout_height="63dp"
-        android:gravity="center"
-        android:text="Nostr Page"
-        android:textSize="24sp"
+
+    <Button
+        android:id="@+id/nostrkeyBTN"
+        android:layout_width="337dp"
+        android:layout_height="71dp"
+        android:text="NEW KEY PAIR"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.658" />
 
     <Button
         android:id="@+id/goHome"
-        android:layout_width="150dp"
-        android:layout_height="63dp"
-        android:text="Home"
+        android:layout_width="337dp"
+        android:layout_height="66dp"
+        android:text="HOME"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nostrkeyBTN"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/privView"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/lavender_border"
+            android:gravity="start|center_vertical"
+            android:hint="private key"
+            android:padding="16dp"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/copyPriv"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/copy" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintVertical_bias="0.211">
 
+        <TextView
+            android:id="@+id/npubView"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/lavender_border"
+            android:gravity="start|center_vertical"
+            android:hint="npub"
+            android:padding="16dp"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/copyNpub"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/copy" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388">
+
+        <TextView
+            android:id="@+id/pubView"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/lavender_border"
+            android:gravity="start|center_vertical"
+            android:hint="public key"
+            android:padding="16dp"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/copyPub"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/copy" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098">
+
+        <TextView
+            android:id="@+id/nsecView"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/lavender_border"
+            android:gravity="start|center_vertical"
+            android:hint="nsec"
+            android:padding="16dp"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/copyNsec"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/copy" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
 import java.math.BigInteger
-import kotlin.random.Random
 
 @Introspected
 object ECKeyProvider {
@@ -14,7 +13,6 @@ object ECKeyProvider {
     fun initialize(ecKeyFactory: ECKeyFactory) {
         keyProvider = ecKeyFactory
     }
-
 
     fun String.toXPoint() : String {
         checkInitialized()

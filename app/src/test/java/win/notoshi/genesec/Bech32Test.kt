@@ -3,7 +3,7 @@ package win.notoshi.genesec
 import junit.framework.TestCase
 import org.junit.Test
 import win.notoshi.genesec.model.utils.Bech32
-import win.notoshi.genesec.model.utils.ShiftTo.HexToByteArray
+import win.notoshi.genesec.utils.ShiftTo.HexToByteArray
 import win.notoshi.genesec.model.utils.toBech32Data
 
 class Bech32Test {

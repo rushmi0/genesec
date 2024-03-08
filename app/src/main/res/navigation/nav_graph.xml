@@ -33,6 +33,9 @@
             app:destination="@id/transactionFragment"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_countFragment"
+            app:destination="@id/countFragment" />
     </fragment>
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
@@ -70,6 +73,11 @@
         android:name="win.notoshi.genesec.viewmodel.fragments.TransactionFragment"
         android:label="fragment_transaction"
         tools:layout="@layout/fragment_transaction" />
+    <fragment
+        android:id="@+id/countFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.CountFragment"
+        android:label="fragment_count"
+        tools:layout="@layout/fragment_count" />
 
 
 </navigation>

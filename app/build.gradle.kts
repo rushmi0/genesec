@@ -112,5 +112,6 @@ dependencies {
     implementation("androidx.room:room-paging:$room_version")
 
     implementation("com.github.thekhaeng:pushdown-anim-click:1.1.1")
+    implementation("com.google.zxing:core:3.4.1")
 
 }
