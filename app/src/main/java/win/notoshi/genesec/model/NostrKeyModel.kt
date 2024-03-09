@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import win.notoshi.genesec.model.record.NostrKeyRecord
 import win.notoshi.genesec.model.record.ShortKeyRecord
 import win.notoshi.genesec.securekey.ECKeyFactory
 import win.notoshi.genesec.securekey.ECKeyProvider
@@ -27,21 +28,20 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
     private lateinit var npub: String
 
     private val _NOSTR_KEY = MutableStateFlow(
-        ShortKeyRecord("", "", "", "")
+        NostrKeyRecord("", "", "", "")
     )
-
 
     private val _SHOW_NOSTR_KEY = MutableStateFlow(
         ShortKeyRecord("", "", "", "")
     )
 
 
-    val NOSTR_KEY: StateFlow<ShortKeyRecord> = _NOSTR_KEY
+    val NOSTR_KEY: StateFlow<NostrKeyRecord> = _NOSTR_KEY
 
     val SHOW_NOSTR_KEY: StateFlow<ShortKeyRecord> = _SHOW_NOSTR_KEY
 
     private fun notifyNostrKeyChanged() {
-        _NOSTR_KEY.value = ShortKeyRecord(
+        _NOSTR_KEY.value = NostrKeyRecord(
             nsec(),
             npub(),
             privateKey(),

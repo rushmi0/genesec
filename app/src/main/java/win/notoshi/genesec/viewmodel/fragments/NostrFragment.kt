@@ -18,8 +18,10 @@ import win.notoshi.genesec.viewmodel.AppViewModelFactory
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.thekhaeng.pushdownanim.PushDownAnim
+import win.notoshi.genesec.model.record.NostrKeyRecord
 
 
 class NostrFragment : Fragment(R.layout.fragment_nostr) {
@@ -43,59 +45,88 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         binding.nostrkeyBTN.setOnClickListener {
             viewModel.rawKeyPair()
         }
+
         binding.goHome.setOnClickListener {
             findNavController().navigateUp()
         }
 
-        copyNsec()
-//        copyNpub()
-//        copyPriv()
-//        copyPub()
         observeNostrKeyPair()
         observeRawKeyPair()
     }
 
-    private fun copyPub() {
-        TODO("Not yet implemented")
+
+    private fun copyPriv(priv: String) {
+        PushDownAnim.setPushDownAnimTo(binding.copyPriv)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                copyToClipboard(priv, "priv")
+            }
     }
 
-    private fun copyPriv() {
-        TODO("Not yet implemented")
-    }
-
-    private fun copyNpub() {
-        TODO("Not yet implemented")
-    }
-
-    private fun copyNsec() {
+    private fun copyNsec(nsec: String) {
         PushDownAnim.setPushDownAnimTo(binding.copyNsec)
             .setScale(PushDownAnim.MODE_SCALE, 0.90f)
             .setOnClickListener {
-                val data = viewModel.NOSTR_KEY.value.nsec
+                copyToClipboard(nsec, "nsec")
+            }
+    }
 
+    private fun copyPub(pub: String) {
+        PushDownAnim.setPushDownAnimTo(binding.copyPub)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                copyToClipboard(pub, "pub")
+            }
+    }
+
+    private fun copyNpub(npub: String) {
+        PushDownAnim.setPushDownAnimTo(binding.copyNpub)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                copyToClipboard(npub, "npub")
+            }
+    }
+
+
+    private fun copyToClipboard(data: String?, label: String) {
+        try {
+            if (!data.isNullOrEmpty()) {
                 val clipboardManager =
                     context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-                val clipData = ClipData.newPlainText("nsec", data)
+                val clipData = ClipData.newPlainText(label, data)
                 clipboardManager.setPrimaryClip(clipData)
 
-                Toast.makeText(context, "nsec copied to clipboard", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "$label copied to clipboard", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "No $label data available", Toast.LENGTH_SHORT).show()
             }
+            Log.d("ClipboardDebug", "Data: $data, Label: $label")
+        } catch (e: Exception) {
+            Log.e("ClipboardError", "Error copying to clipboard: ${e.message}")
+        }
     }
 
 
     private fun observeRawKeyPair() {
         lifecycleScope.launch {
             viewModel.SHOW_NOSTR_KEY.collect { keyData ->
+                Log.d("NostrFragment", "Raw Key Pair Observed: $keyData")
                 updateShortKeyRecord(keyData)
             }
         }
     }
 
     private fun observeNostrKeyPair() {
+        viewModel.nostrKeyPair()
         lifecycleScope.launch {
             viewModel.NOSTR_KEY.collect { keyData ->
+                Log.d("NostrFragment", "Nostr Key Pair Observed: $keyData")
                 updateNostrKeyRecord(keyData)
+                copyNsec(keyData.nsec)
+                copyNpub(keyData.npub)
+                copyPriv(keyData.priv)
+                copyPub(keyData.pub)
             }
         }
     }
@@ -107,7 +138,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         binding.pubView.text = record.pub
     }
 
-    private fun updateNostrKeyRecord(record: ShortKeyRecord) {
+    private fun updateNostrKeyRecord(record: NostrKeyRecord) {
         binding.nsecView.text = record.nsec
         binding.npubView.text = record.npub
         binding.privView.text = record.priv
