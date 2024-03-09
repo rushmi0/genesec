@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import win.notoshi.genesec.model.record.ShortKeyRecord
 import win.notoshi.genesec.R
 import win.notoshi.genesec.databinding.FragmentNostrBinding
 import win.notoshi.genesec.model.NostrKeyModel
@@ -43,7 +42,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
 
     private fun setupViews() {
         binding.nostrkeyBTN.setOnClickListener {
-            viewModel.rawKeyPair()
+            viewModel.nostrKeyPair()
         }
 
         binding.goHome.setOnClickListener {
@@ -51,7 +50,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         }
 
         observeNostrKeyPair()
-        observeRawKeyPair()
     }
 
 
@@ -108,17 +106,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     }
 
 
-    private fun observeRawKeyPair() {
-        lifecycleScope.launch {
-            viewModel.SHOW_NOSTR_KEY.collect { keyData ->
-                Log.d("NostrFragment", "Raw Key Pair Observed: $keyData")
-                updateShortKeyRecord(keyData)
-            }
-        }
-    }
-
     private fun observeNostrKeyPair() {
-        viewModel.nostrKeyPair()
         lifecycleScope.launch {
             viewModel.NOSTR_KEY.collect { keyData ->
                 Log.d("NostrFragment", "Nostr Key Pair Observed: $keyData")
@@ -131,19 +119,31 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         }
     }
 
-    private fun updateShortKeyRecord(record: ShortKeyRecord) {
-        binding.nsecView.text = record.nsec
-        binding.npubView.text = record.npub
-        binding.privView.text = record.priv
-        binding.pubView.text = record.pub
-    }
-
     private fun updateNostrKeyRecord(record: NostrKeyRecord) {
-        binding.nsecView.text = record.nsec
-        binding.npubView.text = record.npub
-        binding.privView.text = record.priv
-        binding.pubView.text = record.pub
+        binding.nsecView.text = record.nsec.shortenString()
+        binding.npubView.text = record.npub.shortenString()
+        binding.privView.text = record.priv.shortenString()
+        binding.pubView.text = record.pub.shortenString()
     }
 
+
+
+    private fun String.shortenString(): String {
+        val prefixLength = 13
+        val suffixLength = 13
+
+        // ตรวจสอบว่าข้อมูลไม่ว่างเปล่าหรือไม่
+        if (this.isEmpty()) {
+            return this
+        }
+
+        // ดึงข้อมูลที่ต้องการเก็บไว้ด้านหน้า
+        val prefix = this.substring(0, minOf(prefixLength, this.length))
+
+        // ดึงข้อมูลที่ต้องการเก็บไว้ด้านหลัง
+        val suffix = this.substring(maxOf(0, this.length - suffixLength))
+
+        return "$prefix....$suffix"
+    }
 
 }

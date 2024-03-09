@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import win.notoshi.genesec.model.record.NostrKeyRecord
-import win.notoshi.genesec.model.record.ShortKeyRecord
 import win.notoshi.genesec.securekey.ECKeyFactory
 import win.notoshi.genesec.securekey.ECKeyProvider
 import win.notoshi.genesec.securekey.ECKeyProvider.toXPoint
@@ -28,17 +27,15 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
     private lateinit var npub: String
 
     private val _NOSTR_KEY = MutableStateFlow(
-        NostrKeyRecord("", "", "", "")
+        NostrKeyRecord(
+            "",
+            "",
+            "",
+            ""
+        )
     )
-
-    private val _SHOW_NOSTR_KEY = MutableStateFlow(
-        ShortKeyRecord("", "", "", "")
-    )
-
 
     val NOSTR_KEY: StateFlow<NostrKeyRecord> = _NOSTR_KEY
-
-    val SHOW_NOSTR_KEY: StateFlow<ShortKeyRecord> = _SHOW_NOSTR_KEY
 
     private fun notifyNostrKeyChanged() {
         _NOSTR_KEY.value = NostrKeyRecord(
@@ -49,38 +46,10 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         )
     }
 
-    private fun showNotifyNostrKeyChanged() {
-        _SHOW_NOSTR_KEY.value = ShortKeyRecord(
-            nsec().shortenString(),
-            npub().shortenString(),
-            privateKey().shortenString(),
-            publicKey().shortenString()
-        )
-    }
-
 
     fun nostrKeyPair() = notifyNostrKeyChanged()
 
-    fun rawKeyPair() = showNotifyNostrKeyChanged()
 
-
-    private fun String.shortenString(): String {
-        val prefixLength = 13
-        val suffixLength = 13
-
-        // ตรวจสอบว่าข้อมูลไม่ว่างเปล่าหรือไม่
-        if (this.isEmpty()) {
-            return this
-        }
-
-        // ดึงข้อมูลที่ต้องการเก็บไว้ด้านหน้า
-        val prefix = this.substring(0, minOf(prefixLength, this.length))
-
-        // ดึงข้อมูลที่ต้องการเก็บไว้ด้านหลัง
-        val suffix = this.substring(maxOf(0, this.length - suffixLength))
-
-        return "$prefix....$suffix"
-    }
 
     private fun randomBytes(): String {
         return Random.nextBytes(32).joinToString("") { "%02x".format(it) }
