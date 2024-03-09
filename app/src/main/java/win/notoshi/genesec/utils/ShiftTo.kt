@@ -53,4 +53,18 @@ object ShiftTo {
         return bech32Data.address
     }
 
+
+    fun String.nsec() : String {
+        return this.wrapKey("nsec")
+    }
+
+    fun String.npub() : String {
+        return this.wrapKey("npub")
+    }
+
+    private fun String.wrapKey(hrp: String): String {
+        return this.bech32Encode(hrp)
+    }
+
+
 }

@@ -37,38 +37,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406">
-
-        <TextView
-            android:id="@+id/privView"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/lavender_border"
-            android:gravity="start|center_vertical"
-            android:hint="private key"
-            android:padding="16dp"
-            android:textColor="@color/lavender"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/copyPriv"
-            android:layout_width="43dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/copy" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
@@ -94,38 +62,6 @@
 
         <ImageView
             android:id="@+id/copyNpub"
-            android:layout_width="43dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/copy" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.519">
-
-        <TextView
-            android:id="@+id/pubView"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/lavender_border"
-            android:gravity="start|center_vertical"
-            android:hint="public key"
-            android:padding="16dp"
-            android:textColor="@color/lavender"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/copyPub"
             android:layout_width="43dp"
             android:layout_height="match_parent"
             android:src="@drawable/copy" />

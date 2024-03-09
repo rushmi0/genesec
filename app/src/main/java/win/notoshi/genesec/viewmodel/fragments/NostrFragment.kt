@@ -53,14 +53,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     }
 
 
-    private fun copyPriv(priv: String) {
-        PushDownAnim.setPushDownAnimTo(binding.copyPriv)
-            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-            .setOnClickListener {
-                copyToClipboard(priv, "priv")
-            }
-    }
-
     private fun copyNsec(nsec: String) {
         PushDownAnim.setPushDownAnimTo(binding.copyNsec)
             .setScale(PushDownAnim.MODE_SCALE, 0.90f)
@@ -69,13 +61,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
             }
     }
 
-    private fun copyPub(pub: String) {
-        PushDownAnim.setPushDownAnimTo(binding.copyPub)
-            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-            .setOnClickListener {
-                copyToClipboard(pub, "pub")
-            }
-    }
 
     private fun copyNpub(npub: String) {
         PushDownAnim.setPushDownAnimTo(binding.copyNpub)
@@ -99,9 +84,9 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
             } else {
                 Toast.makeText(context, "No $label data available", Toast.LENGTH_SHORT).show()
             }
-            Log.d("ClipboardDebug", "Data: $data, Label: $label")
+            Log.d("Clipboard [DEBUG] ", "Data: $data, Label: $label")
         } catch (e: Exception) {
-            Log.e("ClipboardError", "Error copying to clipboard: ${e.message}")
+            Log.e("Clipboard [ERROR] ", "Error copying to clipboard: ${e.message}")
         }
     }
 
@@ -113,8 +98,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
                 updateNostrKeyRecord(keyData)
                 copyNsec(keyData.nsec)
                 copyNpub(keyData.npub)
-                copyPriv(keyData.priv)
-                copyPub(keyData.pub)
             }
         }
     }
@@ -122,8 +105,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     private fun updateNostrKeyRecord(record: NostrKeyRecord) {
         binding.nsecView.text = record.nsec.shortenString()
         binding.npubView.text = record.npub.shortenString()
-        binding.privView.text = record.priv.shortenString()
-        binding.pubView.text = record.pub.shortenString()
     }
 
 
@@ -145,5 +126,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
 
         return "$prefix....$suffix"
     }
+
+
 
 }

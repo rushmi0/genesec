@@ -10,6 +10,8 @@ import win.notoshi.genesec.securekey.ECKeyProvider
 import win.notoshi.genesec.securekey.ECKeyProvider.toXPoint
 import win.notoshi.genesec.securekey.Secp256K1
 import win.notoshi.genesec.utils.ShiftTo.bech32Encode
+import win.notoshi.genesec.utils.ShiftTo.npub
+import win.notoshi.genesec.utils.ShiftTo.nsec
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -30,8 +32,6 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         NostrKeyRecord(
             "",
             "",
-            "",
-            ""
         )
     )
 
@@ -39,10 +39,8 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
 
     private fun notifyNostrKeyChanged() {
         _NOSTR_KEY.value = NostrKeyRecord(
-            nsec(),
-            npub(),
-            privateKey(),
-            publicKey()
+            privateKey().nsec(),
+            publicKey().npub(),
         )
     }
 
@@ -50,20 +48,12 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
     fun nostrKeyPair() = notifyNostrKeyChanged()
 
 
-
     private fun randomBytes(): String {
         return Random.nextBytes(32).joinToString("") { "%02x".format(it) }
     }
 
-    fun nsec(): String {
-        nsec = privateKey().wrapKey("nsec")
-        return nsec
-    }
 
-    fun npub(): String {
-        npub = publicKey().wrapKey("npub")
-        return npub
-    }
+
 
     fun privateKey(): String {
         priv = randomBytes()
@@ -75,8 +65,5 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         return pub
     }
 
-    private fun String.wrapKey(hrp: String): String {
-        return this.bech32Encode(hrp)
-    }
 
 }
