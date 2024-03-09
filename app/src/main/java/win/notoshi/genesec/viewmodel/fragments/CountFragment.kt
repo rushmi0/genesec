@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import win.notoshi.genesec.R
 import win.notoshi.genesec.databinding.FragmentCountBinding
-import win.notoshi.genesec.test.CountModelTest
+import win.notoshi.genesec.model.CountModelTest
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
 class CountFragment : Fragment(R.layout.fragment_count) {

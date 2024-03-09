@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import win.notoshi.genesec.model.MnemonicModel
 import win.notoshi.genesec.model.NostrKeyModel
-import win.notoshi.genesec.test.CountModelTest
+import win.notoshi.genesec.model.CountModelTest
 
 class AppViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
 

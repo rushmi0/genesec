@@ -1,10 +1,10 @@
-package win.notoshi.genesec.test
+package win.notoshi.genesec.model
 
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 class CountModelTest @Inject constructor(val context: Context): ViewModel() {
 

@@ -10,28 +10,28 @@
 
     <Button
         android:id="@+id/nostrkeyBTN"
-        android:layout_width="337dp"
-        android:layout_height="71dp"
+        android:layout_width="196dp"
+        android:layout_height="65dp"
         android:text="NEW KEY PAIR"
         android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.242" />
 
     <Button
         android:id="@+id/goHome"
-        android:layout_width="337dp"
-        android:layout_height="66dp"
+        android:layout_width="196dp"
+        android:layout_height="65dp"
         android:text="HOME"
         android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nostrkeyBTN"
         app:layout_constraintVertical_bias="0.0" />
@@ -45,12 +45,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.028">
 
         <TextView
             android:id="@+id/npubView"
-            android:layout_width="290dp"
+            android:layout_width="238dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/lavender_border"
@@ -66,6 +66,13 @@
             android:layout_height="match_parent"
             android:src="@drawable/copy" />
 
+
+        <ImageView
+            android:id="@+id/qrcodeNpub"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/qrcode" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +82,14 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127">
+        app:layout_constraintVertical_bias="0.192">
 
         <TextView
             android:id="@+id/nsecView"
-            android:layout_width="290dp"
+            android:layout_width="238dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/lavender_border"
@@ -97,6 +104,12 @@
             android:layout_width="43dp"
             android:layout_height="match_parent"
             android:src="@drawable/copy" />
+
+        <ImageView
+            android:id="@+id/qrcodeNsec"
+            android:layout_width="43dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/qrcode" />
 
     </LinearLayout>
 

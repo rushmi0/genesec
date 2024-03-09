@@ -68,11 +68,19 @@ dependencies {
     // ------------------------------------------------------------------------
 
     implementation("jakarta.inject:jakarta.inject-api:2.0.1")
+    implementation("io.micronaut:micronaut-inject-java:1.1.2")
+
 
     // ------------------------------------------------------------------------
 
-    // Micronaut tool
-    implementation("io.micronaut:micronaut-inject-java:1.1.2")
+    // https://mvnrepository.com/artifact/com.saadahmedev.popup-dialog/popup-dialog
+    implementation("com.saadahmedev.popup-dialog:popup-dialog:1.0.7")
+
+    implementation("com.journeyapps:zxing-android-embedded:3.6.0")
+
+    // Use this for both Android and JVM
+    implementation("io.github.g0dkar:qrcode-kotlin:4.1.1")
+
 
     // ------------------------------------------------------------------------
 
