@@ -26,24 +26,28 @@ class SecretWord @Inject constructor(private val Strength: Int) {
 
 
     // * https://www.mathsisfun.com/binary-decimal-hexadecimal-converter.html
-    private fun binarySeed(data: ByteArray): String {
+    private fun checksum(data: ByteArray): String {
         val size = data.size * 8
 
         val entropyHash = data.SHA256().ByteArrayToHex()
-
-        val entropy = data.ByteArrayToBinary()
-        val checksum = entropyHash.HexToBinary().substring(0, size / 32)
-
-        return entropy + checksum
+        return entropyHash.HexToBinary().substring(0, size / 32)
     }
 
     fun generateMnemonic(): String {
         val entropyBytes = generateEntropy()
-        val entropy = binarySeed(entropyBytes)
+        val entropy = entropyBytes.ByteArrayToBinary() + checksum(entropyBytes)
 
         val pieces = (entropy.indices step 11).map { i -> entropy.substring(i, i + 11) }
         //val mnemonic = pieces.map { piece -> wordlist[piece.toInt(2)] }.joinToString(" ")
         return pieces.joinToString(" ") { piece -> WORD[piece.toInt(2)] }
     }
 
+}
+
+
+fun main() {
+    val generator = SecretWord(128)
+    val mnemonic = generator.generateMnemonic()
+    println("\nMnemonic Word [${mnemonic.split(" ").size}]")
+    println("> $mnemonic")
 }

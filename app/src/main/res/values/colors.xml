@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 <!--    <color name="lavender">#272323</color>-->
     <color name="lavender">#98A8F8</color>
+
+    <color name="colorYello">#FFC107</color>
+    <color name="colorRed">#D3443A</color>
 </resources>

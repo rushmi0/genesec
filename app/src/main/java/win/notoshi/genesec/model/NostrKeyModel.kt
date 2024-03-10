@@ -1,7 +1,12 @@
 package win.notoshi.genesec.model
 
 import android.content.Context
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.common.BitMatrix
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,8 +30,6 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
     private lateinit var priv: String
     private lateinit var pub: String
 
-    private lateinit var nsec: String
-    private lateinit var npub: String
 
     private val _NOSTR_KEY = MutableStateFlow(
         NostrKeyRecord(
@@ -58,6 +61,20 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
     fun publicKey(): String {
         pub = priv.toXPoint()
         return pub
+    }
+
+
+    fun generateQRCode(content: String): Bitmap? {
+        val multiFormatWriter = MultiFormatWriter()
+        try {
+            val bitMatrix: BitMatrix =
+                multiFormatWriter.encode(content, BarcodeFormat.QR_CODE, 500, 500)
+            val barcodeEncoder = BarcodeEncoder()
+            return barcodeEncoder.createBitmap(bitMatrix)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
     }
 
 

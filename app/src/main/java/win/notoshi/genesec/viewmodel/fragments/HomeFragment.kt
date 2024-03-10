@@ -24,13 +24,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         toNostrPage()
         toMnemonicPage()
-//        toContractPage()
-//        toTransaction()
+        //toContractPage()
+        //toTransactionPage()
         return binding.root
     }
 
     /*
-    private fun toTransaction() {
+    private fun toTransactionPage() {
         PushDownAnim.setPushDownAnimTo(binding.transactionBTN)
             .setScale(PushDownAnim.MODE_SCALE, 0.90f)
             .setOnClickListener {
@@ -45,7 +45,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCountFragment())
             }
     }
-
      */
 
     private fun toMnemonicPage() {
