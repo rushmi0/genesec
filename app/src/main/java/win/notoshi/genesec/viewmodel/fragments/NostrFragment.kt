@@ -42,12 +42,12 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     }
 
     private fun setupViews() {
+        toHomePage()
         newKeyPair()
-        goHome()
         observeNostrKeyPair()
     }
 
-    private fun goHome() {
+    private fun toHomePage() {
         setupPushDownAnim(binding.goHome)
         binding.goHome.setOnClickListener {
             findNavController().navigateUp()
@@ -75,32 +75,14 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         }
     }
 
-    private fun copyToClipboard(data: String?, label: String) {
-        try {
-            if (!data.isNullOrEmpty()) {
-                val clipboardManager =
-                    requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                val clipData = ClipData.newPlainText(label, data)
-                clipboardManager.setPrimaryClip(clipData)
-
-                Toast.makeText(context, "$label copied to clipboard", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(context, "No $label data available", Toast.LENGTH_SHORT).show()
-            }
-            Log.d("Clipboard [DEBUG] ", "Data: $data, Label: $label")
-        } catch (e: Exception) {
-            Log.e("Clipboard [ERROR] ", "Error copying to clipboard: ${e.message}")
-        }
-    }
-
     private fun observeNostrKeyPair() {
         lifecycleScope.launch {
             viewModel.NOSTR_KEY.collect { keyData ->
                 Log.d("NostrFragment", "Nostr Key Pair Observed: $keyData")
                 updateNostrKeyRecord(keyData)
 
-                val nsec = keyData.nsec
-                val npub = keyData.npub
+                val nsec = keyData.nsec ?: ""
+                val npub = keyData.npub ?: ""
 
                 copyNsec(nsec)
                 copyNpub(npub)
@@ -109,6 +91,11 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
                 qrcodeNpub(npub)
             }
         }
+    }
+
+    private fun updateNostrKeyRecord(record: NostrKeyRecord) {
+        binding.nsecView.text = record.nsec?.shortenString()
+        binding.npubView.text = record.npub?.shortenString()
     }
 
     private fun qrcodeNsec(nsec: String?) {
@@ -135,6 +122,25 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         }
     }
 
+
+    private fun copyToClipboard(data: String?, label: String) {
+        try {
+            if (!data.isNullOrEmpty()) {
+                val clipboardManager =
+                    requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipData = ClipData.newPlainText(label, data)
+                clipboardManager.setPrimaryClip(clipData)
+
+                Toast.makeText(context, "$label copied to clipboard", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "No $label data available", Toast.LENGTH_SHORT).show()
+            }
+            Log.d("Clipboard [DEBUG] ", "Data: $data, Label: $label")
+        } catch (e: Exception) {
+            Log.e("Clipboard [ERROR] ", "Error copying to clipboard: ${e.message}")
+        }
+    }
+
     private fun showQRDialog(data: String) {
         qrDialogBinding = QrDialogBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(requireContext()).apply {
@@ -150,11 +156,6 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
         }
 
         dialog.show()
-    }
-
-    private fun updateNostrKeyRecord(record: NostrKeyRecord) {
-        binding.nsecView.text = record.nsec.shortenString()
-        binding.npubView.text = record.npub.shortenString()
     }
 
     private fun String.shortenString(): String {

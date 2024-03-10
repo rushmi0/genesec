@@ -35,6 +35,7 @@
                 android:layout_width="156dp"
                 android:layout_height="124dp"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/qrcode_nostr_stroke"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"

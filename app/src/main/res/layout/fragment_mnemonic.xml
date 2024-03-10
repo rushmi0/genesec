@@ -2,35 +2,84 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".viewmodel.fragments.MnemonicFragment">
+    android:layout_width="350dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/goHome"
-        android:layout_width="150dp"
-        android:layout_height="63dp"
-        android:text="Home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
-
-    <TextView
-        android:id="@+id/mnemonicText"
-        android:layout_width="203dp"
-        android:layout_height="59dp"
-        android:gravity="center"
-        android:text="Mnemonic Page"
-        android:textSize="24sp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="348dp"
+        android:layout_height="357dp"
+        app:cardCornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/qrcode_nostr_stroke">
+
+
+            <TextView
+                android:id="@+id/closeBTN"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.915"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="62dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/seed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ImageView"
+                android:layout_width="293dp"
+                android:layout_height="206dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/qrcode_nostr_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/seedView"
+                android:layout_width="269dp"
+                android:layout_height="172dp"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ImageView"
+                app:layout_constraintEnd_toEndOf="@+id/ImageView"
+                app:layout_constraintHorizontal_bias="0.458"
+                app:layout_constraintStart_toStartOf="@+id/ImageView"
+                app:layout_constraintTop_toTopOf="@+id/ImageView"
+                app:layout_constraintVertical_bias="0.558" />
+
+            <Button
+                android:id="@+id/genBTN"
+                android:layout_width="153dp"
+                android:layout_height="52dp"
+                android:layout_marginBottom="8dp"
+                android:text="NEW SEED"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

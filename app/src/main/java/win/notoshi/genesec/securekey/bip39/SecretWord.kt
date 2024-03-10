@@ -19,8 +19,8 @@ class SecretWord @Inject constructor(private val Strength: Int) {
         //val entropy = "10101010111110011011000111010000011111001000100010100100111100100110110001011001010100101011011011000111101010010101101111101101"
         val byteArray: ByteArray = entropy.BinaryToByteArray()
 
-        println("Generated Binary: ${byteArray.ByteArrayToBinary()}")
-        println("Entropy Bytes [${byteArray.size}]: ${byteArray.contentToString()}")
+        //println("Generated Binary: ${byteArray.ByteArrayToBinary()}")
+        //println("Entropy Bytes [${byteArray.size}]: ${byteArray.contentToString()}")
         return byteArray
     }
 
@@ -42,12 +42,4 @@ class SecretWord @Inject constructor(private val Strength: Int) {
         return pieces.joinToString(" ") { piece -> WORD[piece.toInt(2)] }
     }
 
-}
-
-
-fun main() {
-    val generator = SecretWord(128)
-    val mnemonic = generator.generateMnemonic()
-    println("\nMnemonic Word [${mnemonic.split(" ").size}]")
-    println("> $mnemonic")
 }

@@ -12,13 +12,21 @@ class MnemonicModel @Inject constructor(val context: Context) : ViewModel() {
 
     private val _SEED = MutableStateFlow(
         BIP32Record(
-            ""
+            null
         )
     )
 
     val SEED: StateFlow<BIP32Record> = _SEED
 
-    fun mnemonicPhrase() : String {
+    private fun notifyMnemonicPhraseChanged() {
+        _SEED.value = BIP32Record(
+            newMnemonic()
+        )
+    }
+
+    fun mnemonicPhrase() = notifyMnemonicPhraseChanged()
+
+    private fun newMnemonic(): String {
         return SecretWord(128).generateMnemonic()
     }
 

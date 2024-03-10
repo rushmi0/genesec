@@ -15,7 +15,6 @@ import win.notoshi.genesec.securekey.ECKeyFactory
 import win.notoshi.genesec.securekey.ECKeyProvider
 import win.notoshi.genesec.securekey.ECKeyProvider.toXPoint
 import win.notoshi.genesec.securekey.Secp256K1
-import win.notoshi.genesec.utils.ShiftTo.bech32Encode
 import win.notoshi.genesec.utils.ShiftTo.npub
 import win.notoshi.genesec.utils.ShiftTo.nsec
 import kotlin.random.Random
@@ -33,8 +32,8 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
 
     private val _NOSTR_KEY = MutableStateFlow(
         NostrKeyRecord(
-            "",
-            "",
+            null,
+            null,
         )
     )
 
@@ -53,12 +52,12 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         return Random.nextBytes(32).joinToString("") { "%02x".format(it) }
     }
 
-    fun privateKey(): String {
+    private fun privateKey(): String {
         priv = randomBytes()
         return priv
     }
 
-    fun publicKey(): String {
+    private fun publicKey(): String {
         pub = priv.toXPoint()
         return pub
     }
