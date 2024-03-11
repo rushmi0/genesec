@@ -1,5 +1,5 @@
 package win.notoshi.genesec.model.record
 
-data class BIP32Record(
+data class BIP39Record(
     val seed: String?
 )

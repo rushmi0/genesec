@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import win.notoshi.genesec.R
 import win.notoshi.genesec.databinding.FragmentMnemonicBinding
 import win.notoshi.genesec.model.MnemonicModel
-import win.notoshi.genesec.model.record.BIP32Record
+import win.notoshi.genesec.model.record.BIP39Record
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
 class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
@@ -56,12 +56,12 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
     private fun observeNewSeed() {
         lifecycleScope.launch {
             viewModel.SEED.collect { seed ->
-                updateBIP32Record(seed)
+                updateBIP39Record(seed)
             }
         }
     }
 
-    private fun updateBIP32Record(record: BIP32Record) {
+    private fun updateBIP39Record(record: BIP39Record) {
         binding.seedView.text = record.seed
     }
 
