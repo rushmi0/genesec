@@ -102,11 +102,19 @@ dependencies {
     // ------------------------------------------------------------------------
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    val secp256k1_version = "0.14.0"
+    // ------------------------------------------------------------------------
+
+    val secp256k1_version = "0.15.0"
     implementation("fr.acinq.secp256k1:secp256k1-kmp:$secp256k1_version")
     implementation("fr.acinq.secp256k1:secp256k1-kmp-jni-jvm:$secp256k1_version")
-    implementation("fr.acinq.bitcoin:bitcoin-kmp:0.18.0")
+    implementation("fr.acinq.secp256k1:secp256k1-kmp-jni-jvm-linux:$secp256k1_version")
+    implementation("fr.acinq.bitcoin:bitcoin-kmp:0.19.0")
+    implementation("fr.acinq.bitcoin:bitcoin-kmp-jvm:0.19.0")
+
+
+    // ------------------------------------------------------------------------
 
     // Room Database
     val room_version = "2.6.1"
