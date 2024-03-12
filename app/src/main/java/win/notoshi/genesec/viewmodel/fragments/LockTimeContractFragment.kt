@@ -9,14 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.thekhaeng.pushdownanim.PushDownAnim
 import win.notoshi.genesec.R
-import win.notoshi.genesec.databinding.FragmentContractBinding
-import win.notoshi.genesec.model.ContractModel
+import win.notoshi.genesec.databinding.FragmentContractLocktimeBinding
+import win.notoshi.genesec.model.LockTimeContractModel
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
-class ContractFragment : Fragment(R.layout.fragment_contract) {
+class LockTimeContractFragment : Fragment(R.layout.fragment_contract_locktime) {
 
-    private lateinit var binding: FragmentContractBinding
-    private lateinit var viewModel: ContractModel
+    private lateinit var binding: FragmentContractLocktimeBinding
+    private lateinit var viewModel: LockTimeContractModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,8 +24,8 @@ class ContractFragment : Fragment(R.layout.fragment_contract) {
         savedInstanceState: Bundle?
     ): View? {
         val factory = AppViewModelFactory(requireActivity())
-        viewModel = ViewModelProvider(this, factory)[ContractModel::class.java]
-        binding = FragmentContractBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(this, factory)[LockTimeContractModel::class.java]
+        binding = FragmentContractLocktimeBinding.inflate(layoutInflater)
         setupViews()
         return binding.root
     }

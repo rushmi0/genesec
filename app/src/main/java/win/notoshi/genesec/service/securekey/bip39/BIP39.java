@@ -1,4 +1,4 @@
-package win.notoshi.genesec.securekey.bip39;
+package win.notoshi.genesec.service.securekey.bip39;
 
 public class BIP39 {
 

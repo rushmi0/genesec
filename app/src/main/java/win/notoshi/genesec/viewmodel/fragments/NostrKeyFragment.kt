@@ -17,17 +17,17 @@ import androidx.navigation.fragment.findNavController
 import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.coroutines.launch
 import win.notoshi.genesec.R
-import win.notoshi.genesec.databinding.FragmentNostrBinding
-import win.notoshi.genesec.databinding.QrDialogBinding
+import win.notoshi.genesec.databinding.FragmentNostrKeyBinding
+import win.notoshi.genesec.databinding.QrNostrDialogBinding
 import win.notoshi.genesec.model.NostrKeyModel
 import win.notoshi.genesec.model.record.NostrKeyRecord
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
-class NostrFragment : Fragment(R.layout.fragment_nostr) {
+class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
 
-    private lateinit var binding: FragmentNostrBinding
+    private lateinit var binding: FragmentNostrKeyBinding
     private lateinit var viewModel: NostrKeyModel
-    private lateinit var qrDialogBinding: QrDialogBinding
+    private lateinit var qrDialogBinding: QrNostrDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +36,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     ): View? {
         val factory = AppViewModelFactory(requireActivity())
         viewModel = ViewModelProvider(this, factory)[NostrKeyModel::class.java]
-        binding = FragmentNostrBinding.inflate(layoutInflater)
+        binding = FragmentNostrKeyBinding.inflate(layoutInflater)
         setupViews()
         return binding.root
     }
@@ -142,7 +142,7 @@ class NostrFragment : Fragment(R.layout.fragment_nostr) {
     }
 
     private fun showQRDialog(data: String) {
-        qrDialogBinding = QrDialogBinding.inflate(layoutInflater)
+        qrDialogBinding = QrNostrDialogBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(requireContext()).apply {
             setView(qrDialogBinding.root)
         }.create()

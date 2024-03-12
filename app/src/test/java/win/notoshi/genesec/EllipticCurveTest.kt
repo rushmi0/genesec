@@ -2,12 +2,12 @@ package win.notoshi.genesec
 
 import junit.framework.TestCase
 import org.junit.Test
-import win.notoshi.genesec.securekey.ECKeyFactory
-import win.notoshi.genesec.securekey.ECKeyProvider
-import win.notoshi.genesec.securekey.ECKeyProvider.compressed
-import win.notoshi.genesec.securekey.ECKeyProvider.toPointField
-import win.notoshi.genesec.securekey.ECKeyProvider.toPublicKey
-import win.notoshi.genesec.securekey.Secp256K1
+import win.notoshi.genesec.service.securekey.ECKeyFactory
+import win.notoshi.genesec.service.securekey.ECKeyProvider
+import win.notoshi.genesec.service.securekey.ECKeyProvider.compressed
+import win.notoshi.genesec.service.securekey.ECKeyProvider.toPointField
+import win.notoshi.genesec.service.securekey.ECKeyProvider.toPublicKey
+import win.notoshi.genesec.service.securekey.Secp256K1
 import java.math.BigInteger
 
 class EllipticCurveTest {

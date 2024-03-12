@@ -1,11 +1,11 @@
-package win.notoshi.genesec.securekey
+package win.notoshi.genesec.service.securekey
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.utils.ShiftTo.ByteArrayToBigInteger
-import win.notoshi.genesec.utils.ShiftTo.ByteArrayToHex
-import win.notoshi.genesec.utils.ShiftTo.HexToByteArray
+import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToBigInteger
+import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToHex
+import win.notoshi.genesec.service.utils.ShiftTo.HexToByteArray
 import java.math.BigInteger
 
 /*

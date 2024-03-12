@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/logo"
+            android:id="@+id/pad1"
             android:layout_width="279dp"
             android:layout_height="63dp"
             android:layout_marginTop="4dp"
@@ -24,6 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <LinearLayout
             android:id="@+id/row1"
@@ -35,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logo">
+            app:layout_constraintTop_toBottomOf="@id/pad1">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/nostrBTN"
@@ -59,7 +60,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/lato"
-                        android:text="Nostr"
+                        android:text="Key Pair"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
@@ -69,7 +70,7 @@
                         android:layout_height="70dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/nostriii" />
+                        android:src="@drawable/key" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -165,6 +166,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+
 <!--            <androidx.cardview.widget.CardView-->
 <!--                android:id="@+id/transactionBTN"-->
 <!--                android:layout_width="0dp"-->
@@ -205,7 +207,6 @@
 
 
         <!-- ///////////////////////////////////////////////////////////////////////// -->
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

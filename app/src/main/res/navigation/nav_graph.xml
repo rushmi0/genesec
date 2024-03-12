@@ -19,11 +19,6 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
         <action
-            android:id="@+id/action_homeFragment_to_nostrFragment"
-            app:destination="@id/nostrFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out" />
-        <action
             android:id="@+id/action_homeFragment_to_contractFragment"
             app:destination="@id/contractFragment"
             app:popEnterAnim="@anim/fade_in"
@@ -50,29 +45,14 @@
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
     <!-- Nostr Page-->
-    <fragment
-        android:id="@+id/nostrFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.NostrFragment"
-        android:label="fragment_nostr"
-        tools:layout="@layout/fragment_nostr" />
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
     <!-- Contract Page-->
-    <fragment
-        android:id="@+id/contractFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.ContractFragment"
-        android:label="fragment_contract"
-        tools:layout="@layout/fragment_contract" />
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
     <!-- Transaction Page-->
-    <fragment
-        android:id="@+id/transactionFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.TransactionFragment"
-        android:label="fragment_transaction"
-        tools:layout="@layout/fragment_transaction" />
     <fragment
         android:id="@+id/countFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.CountFragment"

@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_gravity="center"
-    android:layout_height="370dp"
-    tools:context="win.notoshi.genesec.viewmodel.fragments.ContractFragment">
+    android:layout_height="380dp"
+    tools:context="win.notoshi.genesec.viewmodel.fragments.WIFKeyFragment">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="348dp"
-        android:layout_height="357dp"
+        android:layout_height="368dp"
         app:cardCornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,37 +32,31 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="247dp"
-                android:layout_height="35dp"
+                android:layout_height="39dp"
                 android:layout_marginTop="11dp"
-                android:text="New Time Locked"
+                android:text="WIF Key Pair"
                 android:textColor="#FAF7F0"
                 android:textSize="30sp"
                 android:textStyle="normal"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/blocknumberDesc"
-                android:layout_width="301dp"
-                android:layout_height="34dp"
-                android:layout_marginTop="24dp"
-                android:text="Specify Blockheight required for unlock"
-                android:textColor="#000000"
-                android:textSize="17sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.53"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/publickeyInPut" />
+
+            <!-- ################################################### -->
+
+            <!--                  # Private Key #                    -->
+
+            <!-- ################################################### -->
 
             <TextView
-                android:id="@+id/pubkeyDesc"
+                android:id="@+id/privateKeyDesc"
                 android:layout_width="301dp"
                 android:layout_height="34dp"
                 android:layout_marginTop="24dp"
-                android:text="Enter your Public key"
+                android:text="Private Key"
                 android:textColor="#000000"
                 android:textSize="17sp"
                 android:textStyle="normal"
@@ -71,45 +65,85 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tap" />
 
-            <EditText
-                android:id="@+id/publickeyInPut"
+            <TextView
+                android:id="@+id/privateKeyView"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:background="@drawable/lavender_border"
+                android:gravity="start|center_vertical"
+                android:padding="16dp"
+                android:textColor="@color/lavender"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.284"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privateKeyDesc" />
+
+
+            <ImageView
+                android:id="@+id/qrPrivateKey"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/qrcode"
+                app:layout_constraintStart_toEndOf="@+id/privateKeyView"
+                app:layout_constraintTop_toBottomOf="@+id/privateKeyDesc" />
+
+            <!-- ################################################### -->
+
+            <!--                  # Public Key #                     -->
+
+            <!-- ################################################### -->
+
+
+            <ImageView
+                android:id="@+id/qrPublickey"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/qrcode"
+                app:layout_constraintStart_toEndOf="@+id/publicKeyView"
+                app:layout_constraintTop_toBottomOf="@+id/publicKeyDesc" />
+
+
+            <TextView
+                android:id="@+id/publicKeyDesc"
                 android:layout_width="301dp"
-                android:layout_height="48dp"
-                android:background="@drawable/block_contract"
-                android:gravity="center"
-                android:hint="Public Key Hex"
-                android:inputType="text"
-                android:maxLength="66"
-                android:maxLines="1"
+                android:layout_height="34dp"
+                android:layout_marginTop="24dp"
+                android:text="Public Key"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.53"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pubkeyDesc" />
+                app:layout_constraintTop_toBottomOf="@+id/privateKeyView" />
 
-            <EditText
-                android:id="@+id/blocknumInPut"
-                android:layout_width="210dp"
-                android:layout_height="49dp"
-                android:background="@drawable/block_contract"
-                android:gravity="center"
-                android:hint="Block Number"
-                android:inputType="number"
-                android:maxLength="16"
+            <TextView
+                android:id="@+id/publicKeyView"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:background="@drawable/lavender_border"
+                android:gravity="start|center_vertical"
+                android:padding="16dp"
+                android:textColor="@color/lavender"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
+                app:layout_constraintHorizontal_bias="0.284"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blocknumberDesc" />
+                app:layout_constraintTop_toBottomOf="@+id/publicKeyDesc" />
 
             <Button
-                android:id="@+id/submitBTN"
+                android:id="@+id/newKeytBTN"
                 android:layout_width="153dp"
                 android:layout_height="52dp"
                 android:layout_marginTop="21dp"
-                android:text="Submit"
+                android:text="New Key Pair"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blocknumInPut" />
+                app:layout_constraintTop_toBottomOf="@+id/publicKeyView" />
 
             <ImageView
                 android:id="@+id/goHome"
@@ -125,9 +159,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.cardview.widget.CardView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

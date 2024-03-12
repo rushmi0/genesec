@@ -11,12 +11,12 @@ import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import win.notoshi.genesec.model.record.NostrKeyRecord
-import win.notoshi.genesec.securekey.ECKeyFactory
-import win.notoshi.genesec.securekey.ECKeyProvider
-import win.notoshi.genesec.securekey.ECKeyProvider.toXPoint
-import win.notoshi.genesec.securekey.Secp256K1
-import win.notoshi.genesec.utils.ShiftTo.npub
-import win.notoshi.genesec.utils.ShiftTo.nsec
+import win.notoshi.genesec.service.securekey.ECKeyFactory
+import win.notoshi.genesec.service.securekey.ECKeyProvider
+import win.notoshi.genesec.service.securekey.ECKeyProvider.toXPoint
+import win.notoshi.genesec.service.securekey.Secp256K1
+import win.notoshi.genesec.service.utils.ShiftTo.npub
+import win.notoshi.genesec.service.utils.ShiftTo.nsec
 import kotlin.random.Random
 
 class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {

@@ -1,10 +1,10 @@
-package win.notoshi.genesec.securekey
+package win.notoshi.genesec.service.securekey
 
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import io.micronaut.core.annotation.Introspected
-import win.notoshi.genesec.securekey.ECKeyProvider.toPointField
+import win.notoshi.genesec.service.securekey.ECKeyProvider.toPointField
 import java.math.BigInteger
 
 @Introspected

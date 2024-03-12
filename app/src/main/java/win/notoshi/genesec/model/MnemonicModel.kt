@@ -6,7 +6,7 @@ import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import win.notoshi.genesec.model.record.BIP39Record
-import win.notoshi.genesec.securekey.bip39.SecretWord
+import win.notoshi.genesec.service.securekey.bip39.SecretWord
 
 class MnemonicModel @Inject constructor(val context: Context) : ViewModel() {
 

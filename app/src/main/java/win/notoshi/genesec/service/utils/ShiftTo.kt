@@ -1,4 +1,4 @@
-package win.notoshi.genesec.utils
+package win.notoshi.genesec.service.utils
 
 import win.notoshi.genesec.model.utils.toBech32Data
 import java.math.BigInteger

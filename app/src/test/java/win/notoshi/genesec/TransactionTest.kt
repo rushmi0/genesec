@@ -13,7 +13,7 @@ import fr.acinq.bitcoin.OP_PUSHDATA
 import fr.acinq.bitcoin.OutPoint
 import fr.acinq.bitcoin.PrivateKey
 import fr.acinq.bitcoin.Script
-import win.notoshi.genesec.utils.ShiftTo.toByteArray
+import win.notoshi.genesec.service.utils.ShiftTo.toByteArray
 import fr.acinq.bitcoin.ScriptFlags
 import fr.acinq.bitcoin.SigHash.SIGHASH_ALL
 import fr.acinq.bitcoin.Transaction
@@ -21,7 +21,7 @@ import fr.acinq.bitcoin.TxIn
 import fr.acinq.bitcoin.TxOut
 import fr.acinq.bitcoin.toSatoshi
 import org.junit.Test
-import win.notoshi.genesec.utils.ShiftTo.ByteArrayToHex
+import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToHex
 
 class TransactionTest {
 

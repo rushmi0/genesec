@@ -1,4 +1,4 @@
-package win.notoshi.genesec.securekey
+package win.notoshi.genesec.service.securekey
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -49,7 +49,7 @@ object ECKeyProvider {
     }
 
     private fun checkInitialized() {
-        if (!::keyProvider.isInitialized) {
+        if (!ECKeyProvider::keyProvider.isInitialized) {
             throw IllegalStateException(
                 """
                     ECKeyProvider not initialized. Call initialize() first.

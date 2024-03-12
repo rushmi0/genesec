@@ -1,4 +1,4 @@
-package win.notoshi.genesec.securekey
+package win.notoshi.genesec.service.securekey
 
 import java.math.BigInteger
 

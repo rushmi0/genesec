@@ -4,6 +4,5 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import jakarta.inject.Inject
 
-class ContractModel @Inject constructor(val context: Context) : ViewModel() {
-
+class WIFKeyModel @Inject constructor(val context: Context) : ViewModel() {
 }
