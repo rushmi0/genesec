@@ -1,9 +1,11 @@
 package win.notoshi.genesec.viewmodel.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -31,8 +33,30 @@ class LockTimeContractFragment : Fragment(R.layout.fragment_contract_locktime) {
     }
 
     private fun setupViews() {
+        submit()
         toHomePage()
     }
+
+    private fun submit() {
+        setupPushDownAnim(binding.submitBTN)
+        binding.submitBTN.setOnClickListener {
+            val publicKey = binding.publickeyInPut.text.toString()
+            val blockNumber = binding.blocknumInPut.text.toString()
+
+            // ตรวจสอบว่าข้อมูลไม่ว่างเปล่า
+            if (publicKey.isNotEmpty() && blockNumber.isNotEmpty()) {
+                val action = LockTimeContractFragmentDirections.actionLockTimeContractFragmentToRedeemScriptLockTimeFragment(
+                     publicKey,
+                     blockNumber
+                )
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
 
     private fun toHomePage() {
         setupPushDownAnim(binding.goHome)

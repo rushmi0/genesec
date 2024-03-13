@@ -53,13 +53,13 @@ class WIFKeyModel @Inject constructor(val context: Context) : ViewModel() {
     }
 
     private fun privateKey(): String {
-        priv = randomBytes()
-        return priv
+        this.priv = randomBytes()
+        return this.priv
     }
 
     private fun publicKey(): String {
-        pub = priv.toPublicKey().compressed()
-        return pub
+        this.pub = priv.toPublicKey().compressed()
+        return this.pub
     }
 
 

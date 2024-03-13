@@ -24,7 +24,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         toKeyTypePage()
         toMnemonicPage()
-        //toContractPage()
+        toContractPage()
         //toTransactionPage()
         return binding.root
     }
@@ -46,13 +46,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
      */
 
-//    private fun toContractPage() {
-//        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
-//            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-//            .setOnClickListener {
-//                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToContractFragment())
-//            }
-//    }
+    private fun toContractPage() {
+        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
+            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+            .setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLockTimeContractFragment())
+            }
+    }
 
 
     private fun toMnemonicPage() {

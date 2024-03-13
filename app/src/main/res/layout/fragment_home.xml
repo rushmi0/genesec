@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/constraintLayout"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
 
 
@@ -111,17 +111,16 @@
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-
-
-
         </LinearLayout>
+
+
+
 
         <LinearLayout
             android:id="@+id/row2"
             android:layout_width="0dp"
             android:layout_height="175dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="9dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +163,12 @@
                         android:src="@drawable/contract" />
 
                 </RelativeLayout>
+
+
+
+
             </androidx.cardview.widget.CardView>
+
 
 
 <!--            <androidx.cardview.widget.CardView-->
@@ -206,7 +210,26 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:layout_marginTop="9dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/row1">
+
+
+
+
+        </LinearLayout>
+
         <!-- ///////////////////////////////////////////////////////////////////////// -->
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

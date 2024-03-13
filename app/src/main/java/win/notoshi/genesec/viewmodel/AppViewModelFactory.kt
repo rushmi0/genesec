@@ -8,6 +8,7 @@ import win.notoshi.genesec.model.MnemonicModel
 import win.notoshi.genesec.model.NostrKeyModel
 import win.notoshi.genesec.model.CountModelTest
 import win.notoshi.genesec.model.KeyTypeModel
+import win.notoshi.genesec.model.MnemonicPhraseModel
 import win.notoshi.genesec.model.RedeemScriptLockTimeModel
 import win.notoshi.genesec.model.WIFKeyModel
 
@@ -15,6 +16,7 @@ class AppViewModelFactory(private val context: Context) : ViewModelProvider.Fact
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
+            modelClass.isAssignableFrom(MnemonicPhraseModel::class.java) -> MnemonicPhraseModel(context) as T
             modelClass.isAssignableFrom(MnemonicModel::class.java) -> MnemonicModel(context) as T
 
             modelClass.isAssignableFrom(NostrKeyModel::class.java) -> NostrKeyModel(context) as T

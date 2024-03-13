@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/qrcode_nostr_stroke">
+            android:background="@drawable/show_mnemonic_stroke">
 
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_width="293dp"
                 android:layout_height="206dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/qrcode_nostr_stroke"
+                android:background="@drawable/show_mnemonic_stroke"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"

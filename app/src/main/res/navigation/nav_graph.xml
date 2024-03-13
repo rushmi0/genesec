@@ -13,17 +13,20 @@
         android:name="win.notoshi.genesec.viewmodel.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_mnemonicFragment"
-            app:destination="@id/mnemonicFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out" />
 
         <action
             android:id="@+id/action_homeFragment_to_keyTypeFragment"
             app:destination="@id/keyTypeFragment"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_lockTimeContractFragment"
+            app:destination="@id/lockTimeContractFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_homeFragment_to_mnemonicPhraseFragment"
+            app:destination="@id/mnemonicPhraseFragment" />
     </fragment>
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
@@ -67,6 +70,41 @@
         android:name="win.notoshi.genesec.viewmodel.fragments.WIFKeyFragment"
         android:label="fragment_wif_key"
         tools:layout="@layout/fragment_wif_key" />
+    <fragment
+        android:id="@+id/lockTimeContractFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.LockTimeContractFragment"
+        android:label="fragment_contract_locktime"
+        tools:layout="@layout/fragment_contract_locktime" >
+        <action
+            android:id="@+id/action_lockTimeContractFragment_to_redeemScriptLockTimeFragment"
+            app:destination="@id/redeemScriptLockTimeFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/redeemScriptLockTimeFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.RedeemScriptLockTimeFragment"
+        android:label="fragment_redeem_script_locktime"
+        tools:layout="@layout/fragment_redeem_script_locktime">
+
+        <argument
+            android:name="publicKey"
+            app:argType="string" />
+        <argument
+            android:name="blockNumber"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mnemonicPhraseFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment"
+        android:label="fragment_mnemonic_phrase"
+        tools:layout="@layout/fragment_mnemonic_phrase" >
+        <action
+            android:id="@+id/action_mnemonicPhraseFragment_to_mnemonicFragment"
+            app:destination="@id/mnemonicFragment" />
+    </fragment>
 
 
 </navigation>

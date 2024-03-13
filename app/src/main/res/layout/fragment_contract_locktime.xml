@@ -81,6 +81,7 @@
                 android:inputType="text"
                 android:maxLength="66"
                 android:maxLines="1"
+                android:maxWidth="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.53"
                 app:layout_constraintStart_toStartOf="parent"

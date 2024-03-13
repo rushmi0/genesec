@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_gravity="center"
-    android:layout_height="380dp"
+    android:layout_height="340dp"
     tools:context="win.notoshi.genesec.viewmodel.fragments.KeyTypeFragment">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="348dp"
-        android:layout_height="368dp"
+        android:layout_height="328dp"
         app:cardCornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
                 android:id="@+id/goHome"
                 android:layout_width="153dp"
                 android:layout_height="52dp"
-                android:layout_marginTop="220dp"
+                android:layout_marginTop="196dp"
                 android:text="Home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
@@ -61,7 +61,7 @@
                 android:layout_width="91dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tap"
                 app:srcCompat="@drawable/smartkey" />
@@ -80,9 +80,9 @@
             <ImageView
                 android:id="@+id/nostrKeyBTN"
                 android:layout_width="91dp"
-                android:layout_height="90dp"
-                android:layout_marginTop="56dp"
-                android:layout_marginEnd="52dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tap"
                 app:srcCompat="@drawable/nostriii" />
@@ -91,7 +91,7 @@
                 android:id="@+id/nostrKeyDesc"
                 android:layout_width="95dp"
                 android:layout_height="29dp"
-                android:layout_marginStart="64dp"
+                android:layout_marginStart="66dp"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="Nostr Key"

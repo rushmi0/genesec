@@ -18,7 +18,7 @@ import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.coroutines.launch
 import win.notoshi.genesec.R
 import win.notoshi.genesec.databinding.FragmentNostrKeyBinding
-import win.notoshi.genesec.databinding.QrNostrDialogBinding
+import win.notoshi.genesec.databinding.QrDialogBinding
 import win.notoshi.genesec.model.NostrKeyModel
 import win.notoshi.genesec.model.record.NostrKeyRecord
 import win.notoshi.genesec.service.utils.ShiftTo.shortenString
@@ -28,7 +28,7 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr_key) {
 
     private lateinit var binding: FragmentNostrKeyBinding
     private lateinit var viewModel: NostrKeyModel
-    private lateinit var qrDialogBinding: QrNostrDialogBinding
+    private lateinit var qrDialogBinding: QrDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -143,7 +143,7 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr_key) {
     }
 
     private fun showQRDialog(data: String) {
-        qrDialogBinding = QrNostrDialogBinding.inflate(layoutInflater)
+        qrDialogBinding = QrDialogBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(requireContext()).apply {
             setView(qrDialogBinding.root)
         }.create()

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_gravity="center"
+    android:layout_height="380dp"
+    tools:context="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="348dp"
+        android:layout_height="370dp"
+        app:cardCornerRadius="23dp"
+        app:cardBackgroundColor="#98A8F8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/Word18"
+                android:layout_width="295dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/seed_type_btn"
+                android:gravity="center"
+                android:text="18 Word"
+                android:textColor="#272323"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Word15" />
+
+            <TextView
+                android:id="@+id/Word24"
+                android:layout_width="295dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/seed_type_btn"
+                android:gravity="center"
+                android:text="24 Word"
+                android:textColor="#272323"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Word18" />
+
+            <TextView
+                android:id="@+id/Word15"
+                android:layout_width="295dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/seed_type_btn"
+                android:gravity="center"
+                android:text="15 Word"
+                android:textColor="#272323"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Word12" />
+
+            <ImageView
+                android:id="@+id/seec3"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/seed"
+                app:layout_constraintStart_toStartOf="@+id/Word18"
+                app:layout_constraintTop_toTopOf="@+id/Word18" />
+
+            <ImageView
+                android:id="@+id/seec4"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:src="@drawable/seed"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/Word24"
+                app:layout_constraintTop_toTopOf="@+id/Word24" />
+
+            <ImageView
+                android:id="@+id/seec2"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:src="@drawable/seed"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/Word15"
+                app:layout_constraintTop_toTopOf="@+id/Word15" />
+
+            <TextView
+                android:id="@+id/Word12"
+                android:layout_width="295dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/seed_type_btn"
+                android:gravity="center"
+                android:text="12 Word"
+                android:textColor="#272323"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/seed1"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/seed"
+                app:layout_constraintStart_toStartOf="@+id/Word12"
+                app:layout_constraintTop_toTopOf="@+id/Word12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
