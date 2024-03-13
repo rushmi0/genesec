@@ -70,11 +70,12 @@
                 android:id="@+id/wifKeyDesc"
                 android:layout_width="91dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="WIF Key"
-                app:layout_constraintTop_toBottomOf="@+id/wifKeyBTN"
-                tools:layout_editor_absoluteX="50dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wifKeyBTN" />
 
             <ImageView
                 android:id="@+id/nostrKeyBTN"
@@ -90,11 +91,12 @@
                 android:id="@+id/nostrKeyDesc"
                 android:layout_width="95dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="Nostr Key"
-                app:layout_constraintTop_toBottomOf="@+id/nostrKeyBTN"
-                tools:layout_editor_absoluteX="203dp" />
+                app:layout_constraintStart_toEndOf="@+id/wifKeyDesc"
+                app:layout_constraintTop_toBottomOf="@+id/nostrKeyBTN" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

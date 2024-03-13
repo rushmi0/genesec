@@ -21,9 +21,11 @@ object ECKeyProvider {
         )
     }
 
-    fun BigInteger.toPublicKey(): String {
+    fun String.toPublicKey(): String {
         checkInitialized()
-        return keyProvider.pubKeyPoint(this)
+        return keyProvider.pubKeyPoint(
+            BigInteger(this, 16)
+        )
     }
 
     fun String.compressed(): String {

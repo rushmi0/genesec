@@ -21,9 +21,10 @@ import win.notoshi.genesec.databinding.FragmentNostrKeyBinding
 import win.notoshi.genesec.databinding.QrNostrDialogBinding
 import win.notoshi.genesec.model.NostrKeyModel
 import win.notoshi.genesec.model.record.NostrKeyRecord
+import win.notoshi.genesec.service.utils.ShiftTo.shortenString
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
-class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
+class NostrKeyFragment : Fragment(R.layout.fragment_nostr_key) {
 
     private lateinit var binding: FragmentNostrKeyBinding
     private lateinit var viewModel: NostrKeyModel
@@ -42,35 +43,35 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
     }
 
     private fun setupViews() {
-        toHomePage()
+        toKeyTypePage()
         newKeyPair()
         observeNostrKeyPair()
     }
 
-    private fun toHomePage() {
-        setupPushDownAnim(binding.goHome)
-        binding.goHome.setOnClickListener {
+    private fun toKeyTypePage() {
+        setupPushDownAnim(binding.goKeyTypePage)
+        binding.goKeyTypePage.setOnClickListener {
             findNavController().navigateUp()
         }
     }
 
     private fun newKeyPair() {
-        setupPushDownAnim(binding.nostrkeyBTN)
-        binding.nostrkeyBTN.setOnClickListener {
+        setupPushDownAnim(binding.newKeytBTN)
+        binding.newKeytBTN.setOnClickListener {
             viewModel.nostrKeyPair()
         }
     }
 
     private fun copyNsec(nsec: String) {
-        setupPushDownAnim(binding.copyNsec)
-        binding.copyNsec.setOnClickListener {
+        setupPushDownAnim(binding.copyPriv)
+        binding.copyPriv.setOnClickListener {
             copyToClipboard(nsec, "nsec")
         }
     }
 
     private fun copyNpub(npub: String) {
-        setupPushDownAnim(binding.copyNpub)
-        binding.copyNpub.setOnClickListener {
+        setupPushDownAnim(binding.copyPub)
+        binding.copyPub.setOnClickListener {
             copyToClipboard(npub, "npub")
         }
     }
@@ -78,7 +79,7 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
     private fun observeNostrKeyPair() {
         lifecycleScope.launch {
             viewModel.NOSTR_KEY.collect { keyData ->
-                Log.d("NostrFragment", "Nostr Key Pair Observed: $keyData")
+                Log.d("NostrKeyFragment", "Nostr Key Pair Observed: $keyData")
                 updateNostrKeyRecord(keyData)
 
                 val nsec = keyData.nsec ?: ""
@@ -94,13 +95,13 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
     }
 
     private fun updateNostrKeyRecord(record: NostrKeyRecord) {
-        binding.nsecView.text = record.nsec?.shortenString()
-        binding.npubView.text = record.npub?.shortenString()
+        binding.privateKeyView.text = record.nsec?.shortenString()
+        binding.publicKeyView.text = record.npub?.shortenString()
     }
 
     private fun qrcodeNsec(nsec: String?) {
-        setupPushDownAnim(binding.qrcodeNsec)
-        binding.qrcodeNsec.setOnClickListener {
+        setupPushDownAnim(binding.qrPrivateKey)
+        binding.qrPrivateKey.setOnClickListener {
             when {
                 !nsec.isNullOrEmpty() -> showQRDialog(nsec)
                 else -> {
@@ -111,8 +112,8 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
     }
 
     private fun qrcodeNpub(npub: String) {
-        setupPushDownAnim(binding.qrcodeNpub)
-        binding.qrcodeNpub.setOnClickListener {
+        setupPushDownAnim(binding.qrPublickey)
+        binding.qrPublickey.setOnClickListener {
             when {
                 npub.isNotEmpty() -> showQRDialog(npub)
                 else -> {
@@ -158,19 +159,6 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr) {
         dialog.show()
     }
 
-    private fun String.shortenString(): String {
-        val prefixLength = 10
-        val suffixLength = 10
-
-        return when {
-            this.isNotEmpty() -> {
-                val prefix = this.substring(0, minOf(prefixLength, length))
-                val suffix = this.substring(maxOf(0, length - suffixLength))
-                "$prefix....$suffix"
-            }
-            else -> this
-        }
-    }
 
     private fun setupPushDownAnim(view: View) {
         PushDownAnim.setPushDownAnimTo(view)

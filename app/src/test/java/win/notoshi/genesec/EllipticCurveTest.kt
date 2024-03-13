@@ -12,7 +12,7 @@ import java.math.BigInteger
 
 class EllipticCurveTest {
 
-    private val priv = BigInteger("3f92871eacfc4d34e37441d3f5c662dd5ae45e7744b201a6367da19dc51a3fb4", 16)
+    private val priv = "3f92871eacfc4d34e37441d3f5c662dd5ae45e7744b201a6367da19dc51a3fb4"
 
     init {
         val ecKeyFactory = ECKeyFactory(Secp256K1)

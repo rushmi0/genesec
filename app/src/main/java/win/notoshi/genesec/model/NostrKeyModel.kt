@@ -37,14 +37,14 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         )
     )
 
-    val NOSTR_KEY: StateFlow<NostrKeyRecord> = _NOSTR_KEY
-
     private fun notifyNostrKeyChanged() {
         _NOSTR_KEY.value = NostrKeyRecord(
             privateKey().nsec(),
             publicKey().npub(),
         )
     }
+
+    val NOSTR_KEY: StateFlow<NostrKeyRecord> = _NOSTR_KEY
 
     fun nostrKeyPair() = notifyNostrKeyChanged()
 

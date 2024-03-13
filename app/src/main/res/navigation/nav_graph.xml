@@ -18,19 +18,12 @@
             app:destination="@id/mnemonicFragment"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+
         <action
-            android:id="@+id/action_homeFragment_to_contractFragment"
-            app:destination="@id/contractFragment"
+            android:id="@+id/action_homeFragment_to_keyTypeFragment"
+            app:destination="@id/keyTypeFragment"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
-        <action
-            android:id="@+id/action_homeFragment_to_transactionFragment"
-            app:destination="@id/transactionFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out" />
-        <action
-            android:id="@+id/action_homeFragment_to_countFragment"
-            app:destination="@id/countFragment" />
     </fragment>
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
@@ -44,20 +37,36 @@
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
-    <!-- Nostr Page-->
-
-    <!-- ///////////////////////////////////////////////////////////////////////// -->
-
-    <!-- Contract Page-->
-
-    <!-- ///////////////////////////////////////////////////////////////////////// -->
-
-    <!-- Transaction Page-->
     <fragment
-        android:id="@+id/countFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.CountFragment"
-        android:label="fragment_count"
-        tools:layout="@layout/fragment_count" />
+        android:id="@+id/nostrKeyFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.NostrKeyFragment"
+        android:label="fragment_nostr_key"
+        tools:layout="@layout/fragment_nostr_key" />
+
+
+    <fragment
+        android:id="@+id/keyTypeFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.KeyTypeFragment"
+        android:label="fragment_key_type"
+        tools:layout="@layout/fragment_key_type" >
+        <action
+            android:id="@+id/action_keyTypeFragment_to_nostrKeyFragment"
+            app:destination="@id/nostrKeyFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_keyTypeFragment_to_WIFKeyFragment"
+            app:destination="@id/WIFKeyFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/WIFKeyFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.WIFKeyFragment"
+        android:label="fragment_wif_key"
+        tools:layout="@layout/fragment_wif_key" />
 
 
 </navigation>

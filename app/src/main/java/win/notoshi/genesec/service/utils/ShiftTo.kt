@@ -47,6 +47,14 @@ object ShiftTo {
         return toByteArray().SHA256()
     }
 
+    fun String.RIPEMD160(): String {
+        return Ripemd160.getHash(this.HexToByteArray()).ByteArrayToHex()
+    }
+
+    fun ByteArray.RIPEMD160(): String {
+        return Ripemd160.getHash(this).ByteArrayToHex()
+    }
+
     fun String.bech32Encode(hrp: String) : String {
         val keyBytes = this.HexToByteArray()
         val bech32Data = keyBytes.toBech32Data(hrp)
@@ -89,6 +97,30 @@ object ShiftTo {
             }
         }
         return decodedScript
+    }
+
+
+    fun String.shortenString(): String {
+        val prefixLength = 8
+        val suffixLength = 8
+
+        return when {
+            this.isNotEmpty() -> {
+                val prefix = this.substring(0, minOf(prefixLength, length))
+                val suffix = this.substring(maxOf(0, length - suffixLength))
+                "$prefix....$suffix"
+            }
+            else -> this
+        }
+    }
+
+
+    fun String.decodeBase58(): String {
+        return Base58.decode(this).ByteArrayToHex()
+    }
+
+    fun String.encodeBase58(): String {
+        return Base58.encode(this.HexToByteArray())
     }
 
 

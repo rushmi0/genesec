@@ -22,11 +22,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        toNostrPage()
+        toKeyTypePage()
         toMnemonicPage()
-        toContractPage()
+        //toContractPage()
         //toTransactionPage()
         return binding.root
+    }
+
+    private fun toKeyTypePage() {
+        setupPushDownAnim(binding.keyTypeBTN)
+        binding.keyTypeBTN.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToKeyTypeFragment())
+        }
     }
 
     /*
@@ -39,13 +46,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
      */
 
-    private fun toContractPage() {
-        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
-            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-            .setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToContractFragment())
-            }
-    }
+//    private fun toContractPage() {
+//        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
+//            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+//            .setOnClickListener {
+//                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToContractFragment())
+//            }
+//    }
 
 
     private fun toMnemonicPage() {
@@ -56,14 +63,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
     }
 
-    private fun toNostrPage() {
-        PushDownAnim.setPushDownAnimTo(binding.nostrBTN)
-            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-            .setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToNostrFragment())
-            }
+//    private fun toNostrPage() {
+//        PushDownAnim.setPushDownAnimTo(binding.nostrBTN)
+//            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
+//            .setOnClickListener {
+//                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToNostrFragment())
+//            }
+//    }
+
+
+    private fun setupPushDownAnim(view: View) {
+        PushDownAnim.setPushDownAnimTo(view)
+            .setScale(PushDownAnim.MODE_SCALE, 0.70f)
     }
-
-
 
 }
