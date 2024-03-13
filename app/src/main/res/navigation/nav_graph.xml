@@ -26,7 +26,9 @@
             app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_mnemonicPhraseFragment"
-            app:destination="@id/mnemonicPhraseFragment" />
+            app:destination="@id/mnemonicPhraseFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
@@ -103,7 +105,9 @@
         tools:layout="@layout/fragment_mnemonic_phrase" >
         <action
             android:id="@+id/action_mnemonicPhraseFragment_to_mnemonicFragment"
-            app:destination="@id/mnemonicFragment" />
+            app:destination="@id/mnemonicFragment"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
 
 

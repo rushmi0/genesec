@@ -47,11 +47,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      */
 
     private fun toContractPage() {
-        PushDownAnim.setPushDownAnimTo(binding.contractBTN)
-            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-            .setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLockTimeContractFragment())
-            }
+        setupPushDownAnim(binding.contractBTN)
+        binding.contractBTN.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLockTimeContractFragment())
+        }
     }
 
 
@@ -59,17 +58,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         PushDownAnim.setPushDownAnimTo(binding.mnemonicBTN)
             .setScale(PushDownAnim.MODE_SCALE, 0.90f)
             .setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMnemonicFragment())
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMnemonicPhraseFragment())
             }
     }
-
-//    private fun toNostrPage() {
-//        PushDownAnim.setPushDownAnimTo(binding.nostrBTN)
-//            .setScale(PushDownAnim.MODE_SCALE, 0.90f)
-//            .setOnClickListener {
-//                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToNostrFragment())
-//            }
-//    }
 
 
     private fun setupPushDownAnim(view: View) {
