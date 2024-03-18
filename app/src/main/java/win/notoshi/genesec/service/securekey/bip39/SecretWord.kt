@@ -1,5 +1,6 @@
 package win.notoshi.genesec.service.securekey.bip39
 
+import android.util.Log
 import win.notoshi.genesec.service.utils.ShiftTo.BinaryToByteArray
 import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToBinary
 import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToHex
@@ -38,8 +39,17 @@ class SecretWord @Inject constructor(private val Strength: Int) {
         val entropy = entropyBytes.ByteArrayToBinary() + checksum(entropyBytes)
 
         val pieces = (entropy.indices step 11).map { i -> entropy.substring(i, i + 11) }
+        Log.d("Binary ${pieces.size} Pieces", "$pieces")
+
         //val mnemonic = pieces.map { piece -> wordlist[piece.toInt(2)] }.joinToString(" ")
         return pieces.joinToString(" ") { piece -> WORD[piece.toInt(2)] }
     }
 
+}
+
+fun main() {
+    val generator = SecretWord(160)
+    val mnemonic = generator.generateMnemonic()
+    println("\nMnemonic Word [${mnemonic.split(" ").size}]")
+    println("> $mnemonic")
 }

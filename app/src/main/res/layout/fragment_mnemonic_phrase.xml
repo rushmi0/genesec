@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
-    android:layout_height="380dp"
+    android:background="#A4BDF7"
     android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment">
 
 
@@ -33,6 +34,8 @@
                 android:text="18 Word"
                 android:textColor="#272323"
                 android:textSize="23sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +51,8 @@
                 android:text="24 Word"
                 android:textColor="#272323"
                 android:textSize="23sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +68,8 @@
                 android:text="15 Word"
                 android:textColor="#272323"
                 android:textSize="23sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,9 +79,10 @@
                 android:id="@+id/seec3"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/seed"
+                app:layout_constraintEnd_toEndOf="@+id/Word18"
+                app:layout_constraintHorizontal_bias="0.162"
                 app:layout_constraintStart_toStartOf="@+id/Word18"
                 app:layout_constraintTop_toTopOf="@+id/Word18" />
 
@@ -82,9 +90,10 @@
                 android:id="@+id/seec4"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/seed"
+                app:layout_constraintEnd_toEndOf="@+id/Word24"
+                app:layout_constraintHorizontal_bias="0.162"
                 app:layout_constraintStart_toStartOf="@+id/Word24"
                 app:layout_constraintTop_toTopOf="@+id/Word24" />
 
@@ -92,11 +101,13 @@
                 android:id="@+id/seec2"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/seed"
+                app:layout_constraintEnd_toEndOf="@+id/Word15"
+                app:layout_constraintHorizontal_bias="0.162"
                 app:layout_constraintStart_toStartOf="@+id/Word15"
                 app:layout_constraintTop_toTopOf="@+id/Word15" />
+
 
             <TextView
                 android:id="@+id/Word12"
@@ -108,6 +119,8 @@
                 android:text="12 Word"
                 android:textColor="#272323"
                 android:textSize="23sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,9 +130,10 @@
                 android:id="@+id/seed1"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:src="@drawable/seed"
+                app:layout_constraintEnd_toEndOf="@+id/Word12"
+                app:layout_constraintHorizontal_bias="0.162"
                 app:layout_constraintStart_toStartOf="@+id/Word12"
                 app:layout_constraintTop_toTopOf="@+id/Word12" />
 

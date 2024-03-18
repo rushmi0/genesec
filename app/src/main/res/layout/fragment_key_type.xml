@@ -3,9 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
+    android:background="#A4BDF7"
     android:layout_gravity="center"
-    android:layout_height="340dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="win.notoshi.genesec.viewmodel.fragments.KeyTypeFragment">
 
 
@@ -32,25 +33,43 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="247dp"
-                android:layout_height="35dp"
+                android:layout_width="277dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="11dp"
                 android:text="Generate Key Pair"
                 android:textColor="#FAF7F0"
                 android:textSize="30sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <Button
+            <!--            <Button-->
+<!--                android:id="@+id/goHome"-->
+<!--                android:layout_width="153dp"-->
+<!--                android:layout_height="52dp"-->
+<!--                android:layout_marginTop="196dp"-->
+<!--                android:text="Home"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.502"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tap" />-->
+
+            <TextView
                 android:id="@+id/goHome"
-                android:layout_width="153dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="196dp"
+                android:layout_width="140dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="194dp"
+                android:background="@drawable/green_rounded_button"
+                android:fontFamily="@font/grandstander_light"
+                android:gravity="center"
                 android:text="Home"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +93,8 @@
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="WIF Key"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wifKeyBTN" />
 
@@ -95,6 +116,8 @@
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="Nostr Key"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintStart_toEndOf="@+id/wifKeyDesc"
                 app:layout_constraintTop_toBottomOf="@+id/nostrKeyBTN" />
 

@@ -60,16 +60,9 @@ class RedeemScriptLockTimeFragment : Fragment(R.layout.fragment_redeem_script_lo
                 val redeemScript = data.redeemScript
 
                 copyLockingScript(lockingScript)
-                //copyRedeemScript(redeemScript)
-
                 qrcodeRedeemScript(redeemScript)
             }
         }
-    }
-
-
-    private fun copyRedeemScript(redeemScript: String) {
-        TODO("Not yet implemented")
     }
 
 

@@ -23,22 +23,17 @@
             android:id="@+id/action_homeFragment_to_lockTimeContractFragment"
             app:destination="@id/lockTimeContractFragment"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_mnemonicPhraseFragment"
             app:destination="@id/mnemonicPhraseFragment"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
     <!-- Mnemonic Page-->
-    <fragment
-        android:id="@+id/mnemonicFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicFragment"
-        android:label="fragment_mnemonic"
-        tools:layout="@layout/fragment_mnemonic" />
 
     <!-- ///////////////////////////////////////////////////////////////////////// -->
 
@@ -53,7 +48,7 @@
         android:id="@+id/keyTypeFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.KeyTypeFragment"
         android:label="fragment_key_type"
-        tools:layout="@layout/fragment_key_type" >
+        tools:layout="@layout/fragment_key_type">
         <action
             android:id="@+id/action_keyTypeFragment_to_nostrKeyFragment"
             app:destination="@id/nostrKeyFragment"
@@ -63,7 +58,7 @@
             android:id="@+id/action_keyTypeFragment_to_WIFKeyFragment"
             app:destination="@id/WIFKeyFragment"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
 
@@ -76,12 +71,12 @@
         android:id="@+id/lockTimeContractFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.LockTimeContractFragment"
         android:label="fragment_contract_locktime"
-        tools:layout="@layout/fragment_contract_locktime" >
+        tools:layout="@layout/fragment_contract_locktime">
         <action
             android:id="@+id/action_lockTimeContractFragment_to_redeemScriptLockTimeFragment"
             app:destination="@id/redeemScriptLockTimeFragment"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -98,16 +93,33 @@
             app:argType="string" />
 
     </fragment>
+
+
     <fragment
         android:id="@+id/mnemonicPhraseFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment"
         android:label="fragment_mnemonic_phrase"
-        tools:layout="@layout/fragment_mnemonic_phrase" >
+        tools:layout="@layout/fragment_mnemonic_phrase">
         <action
             android:id="@+id/action_mnemonicPhraseFragment_to_mnemonicFragment"
             app:destination="@id/mnemonicFragment"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/mnemonicFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicFragment"
+        android:label="fragment_mnemonic"
+        tools:layout="@layout/fragment_mnemonic">
+
+        <argument
+            android:name="strength"
+            app:argType="integer" />
+
+        <argument
+            android:name="wordLength"
+            app:argType="integer" />
+
     </fragment>
 
 

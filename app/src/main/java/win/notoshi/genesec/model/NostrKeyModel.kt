@@ -67,7 +67,7 @@ class NostrKeyModel @Inject constructor(val context: Context) : ViewModel() {
         val multiFormatWriter = MultiFormatWriter()
         try {
             val bitMatrix: BitMatrix =
-                multiFormatWriter.encode(content, BarcodeFormat.QR_CODE, 500, 500)
+                multiFormatWriter.encode(content, BarcodeFormat.QR_CODE, 800, 800)
             val barcodeEncoder = BarcodeEncoder()
             return barcodeEncoder.createBitmap(bitMatrix)
         } catch (e: Exception) {

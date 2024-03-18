@@ -17,7 +17,6 @@ import win.notoshi.genesec.service.utils.ShiftTo.HexToByteArray
 
 class RedeemScriptLockTimeModel @Inject constructor(val context: Context) : ViewModel() {
 
-
     private lateinit var pubKey: String
     private lateinit var blockNumber: String
     private lateinit var redeemScript: String

@@ -1,6 +1,7 @@
 package win.notoshi.genesec.viewmodel.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,22 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
     }
 
     private fun setupViews() {
+        retrieveValue()
         toHomePage()
         newSeed()
         observeNewSeed()
+    }
+
+    private fun retrieveValue() {
+        val strength = requireArguments().getInt("strength")
+        val wordLength = requireArguments().getInt("wordLength")
+        viewModel.getValue(strength, wordLength)
+
+        binding.amountWord.text = wordLength.toString()
+
+        // แสดงค่าใน Log
+        Log.d("strength Value", "$strength bits")
+        Log.d("Word Length Value", "$wordLength")
     }
 
     private fun toHomePage() {
@@ -47,9 +61,9 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
     }
 
     private fun newSeed() {
-        setupPushDownAnim(binding.genBTN)
-        binding.genBTN.setOnClickListener {
-            viewModel.mnemonicPhrase()
+        setupPushDownAnim(binding.newSeedtBTN)
+        binding.newSeedtBTN.setOnClickListener {
+            viewModel.mnemonicPhrase().toString()
         }
     }
 
@@ -61,8 +75,10 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
         }
     }
 
-    private fun updateBIP39Record(record: BIP39Record) {
+    private fun updateBIP39Record( record: BIP39Record) {
         binding.seedView.text = record.seed
+        binding.amountWord.text = record.size.toString()
+        Log.d("Mnemonic ${binding.seedView.text.split(" ").size} Word", "${binding.seedView.text}")
     }
 
     private fun setupPushDownAnim(view: View) {

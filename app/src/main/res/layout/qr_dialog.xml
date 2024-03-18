@@ -3,72 +3,76 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
     android:layout_gravity="center"
-    android:layout_height="300dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="win.notoshi.genesec.viewmodel.fragments.KeyTypeFragment">
+
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_width="310dp"
+        android:layout_height="328dp"
+        app:cardCornerRadius="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/qrcode_dialog_stroke">
+            android:layout_height="match_parent">
+
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="149dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:textColor="@color/lavender"
-                android:textSize="34sp"
-                android:textStyle="bold"
+                android:id="@+id/closeBTN"
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/green_rounded_button"
+                android:fontFamily="@font/grandstander_light"
+                android:gravity="center"
+                android:text="Close"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/preViewKey" />
 
             <ImageView
                 android:id="@+id/qrcodeImageView"
-                android:layout_width="185dp"
-                android:layout_height="154dp"
-                android:background="@drawable/qrcode_dialog_stroke"
+                android:layout_width="166dp"
+                android:layout_height="166dp"
+                android:layout_marginTop="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/preViewKey"
                 android:layout_width="265dp"
                 android:layout_height="38dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintHorizontal_bias="0.511"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/qrcodeImageView" />
 
-            <Button
-                android:id="@+id/closeBTN"
-                android:layout_width="153dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="16dp"
-                android:text="close"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <ImageView
+                android:id="@+id/saveQRCode"
+                android:layout_width="35dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/preViewKey"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/downarrow" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

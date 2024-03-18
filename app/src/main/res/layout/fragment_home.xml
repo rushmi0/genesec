@@ -61,7 +61,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/lato"
                         android:text="Key Pair"
-                        android:textColor="@color/lavender"
+                        android:textColor="#272323"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -98,7 +98,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/lato"
                         android:text="Mnemonic"
-                        android:textColor="@color/lavender"
+                        android:textColor="#272323"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -151,7 +151,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/lato"
                         android:text="Contract"
-                        android:textColor="@color/lavender"
+                        android:textColor="#272323"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -163,9 +163,6 @@
                         android:src="@drawable/contract" />
 
                 </RelativeLayout>
-
-
-
 
             </androidx.cardview.widget.CardView>
 
@@ -210,22 +207,19 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/row3"
-            android:layout_width="0dp"
-            android:layout_height="175dp"
-            android:layout_marginTop="9dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/row1">
-
-
-
-
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/row3"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="175dp"-->
+<!--            android:layout_marginTop="9dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/row1">-->
+<!--            -->
+<!--        </LinearLayout>-->
 
         <!-- ///////////////////////////////////////////////////////////////////////// -->
 
