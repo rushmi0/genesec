@@ -53,10 +53,3 @@ class SecretWord @Inject constructor(private val Strength: Int) {
     }
 
 }
-
-fun main() {
-    val generator = SecretWord(160)
-    val mnemonic = generator.generateMnemonic()
-    println("\nMnemonic Word [${mnemonic.split(" ").size}]")
-    println("> $mnemonic")
-}
