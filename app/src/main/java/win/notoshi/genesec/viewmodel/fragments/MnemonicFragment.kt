@@ -36,6 +36,7 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
 
     private fun setupViews() {
         retrieveValue()
+        toBackPage()
         toHomePage()
         newSeed()
         observeNewSeed()
@@ -49,13 +50,21 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
         binding.amountWord.text = wordLength.toString()
 
         // แสดงค่าใน Log
-        Log.d("strength Value", "$strength bits")
+        Log.d("Strength Value", "$strength bits")
         Log.d("Word Length Value", "$wordLength")
     }
 
     private fun toHomePage() {
-        setupPushDownAnim(binding.closeBTN)
-        binding.closeBTN.setOnClickListener {
+        setupPushDownAnim(binding.confirmSeedtBTN)
+        binding.confirmSeedtBTN.setOnClickListener {
+            findNavController().navigate(MnemonicFragmentDirections.actionMnemonicFragmentToHomeFragment())
+        }
+    }
+
+
+    private fun toBackPage() {
+        setupPushDownAnim(binding.backBTN)
+        binding.backBTN.setOnClickListener {
             findNavController().navigateUp()
         }
     }
@@ -70,20 +79,19 @@ class MnemonicFragment : Fragment(R.layout.fragment_mnemonic) {
     private fun observeNewSeed() {
         lifecycleScope.launch {
             viewModel.SEED.collect { seed ->
-                updateBIP39Record(seed)
+                updateBIP39Record(seed, viewModel.getWordLength())
             }
         }
     }
 
-    private fun updateBIP39Record( record: BIP39Record) {
+    private fun updateBIP39Record(record: BIP39Record, wordLength: Int) {
         binding.seedView.text = record.seed
-        binding.amountWord.text = record.size.toString()
-        Log.d("Mnemonic ${binding.seedView.text.split(" ").size} Word", "${binding.seedView.text}")
+        binding.amountWord.text = wordLength.toString()
+        Log.d("Mnemonic $wordLength Word", "${binding.seedView.text}")
     }
 
     private fun setupPushDownAnim(view: View) {
         PushDownAnim.setPushDownAnimTo(view)
             .setScale(PushDownAnim.MODE_SCALE, 0.70f)
     }
-
 }

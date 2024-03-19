@@ -17,7 +17,6 @@ class MnemonicModel @Inject constructor(val context: Context) : ViewModel() {
     private var strength by Delegates.notNull<Int>()
     private var length by Delegates.notNull<Int>()
 
-
     private fun notifyMnemonicPhraseChanged() {
         _SEED.value = BIP39Record(newMnemonic(), length)
     }
@@ -35,4 +34,7 @@ class MnemonicModel @Inject constructor(val context: Context) : ViewModel() {
         this.length = wordLength
     }
 
+    fun getWordLength(): Int {
+        return length
+    }
 }

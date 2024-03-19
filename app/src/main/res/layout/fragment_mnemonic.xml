@@ -55,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/closeBTN"
+                android:id="@+id/backBTN"
                 android:layout_width="32dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="12dp"

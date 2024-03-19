@@ -9,14 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.thekhaeng.pushdownanim.PushDownAnim
 import win.notoshi.genesec.R
-import win.notoshi.genesec.databinding.FragmentMnemonicPhraseBinding
+import win.notoshi.genesec.databinding.FragmentMnemonicLengthBinding
 import win.notoshi.genesec.model.MnemonicPhraseModel
 import win.notoshi.genesec.viewmodel.AppViewModelFactory
 
-class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
+class MnemonicLengthFragment : Fragment(R.layout.fragment_mnemonic_length) {
 
 
-    private lateinit var binding: FragmentMnemonicPhraseBinding
+    private lateinit var binding: FragmentMnemonicLengthBinding
     private lateinit var viewModel: MnemonicPhraseModel
 
 
@@ -27,7 +27,7 @@ class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
     ): View? {
         val factory = AppViewModelFactory(requireActivity())
         viewModel = ViewModelProvider(this, factory)[MnemonicPhraseModel::class.java]
-        binding = FragmentMnemonicPhraseBinding.inflate(layoutInflater)
+        binding = FragmentMnemonicLengthBinding.inflate(layoutInflater)
 
         pageChoice()
         return binding.root
@@ -44,8 +44,8 @@ class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
         setupPushDownAnim(binding.Word24)
         binding.Word24.setOnClickListener {
             val action =
-                MnemonicPhraseFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
-                    256,
+                MnemonicLengthFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
+                    32, // 256 bits
                     24
                 )
             findNavController().navigate(action)
@@ -56,8 +56,8 @@ class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
         setupPushDownAnim(binding.Word18)
         binding.Word18.setOnClickListener {
             val action =
-                MnemonicPhraseFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
-                    192,
+                MnemonicLengthFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
+                    24, // 192 bits
                     28
                 )
             findNavController().navigate(action)
@@ -68,8 +68,8 @@ class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
         setupPushDownAnim(binding.Word15)
         binding.Word15.setOnClickListener {
             val action =
-                MnemonicPhraseFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
-                    160,
+                MnemonicLengthFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
+                    20, // 160 bits
                     15
                 )
             findNavController().navigate(action)
@@ -80,8 +80,8 @@ class MnemonicPhraseFragment : Fragment(R.layout.fragment_mnemonic_phrase) {
         setupPushDownAnim(binding.Word12)
         binding.Word12.setOnClickListener {
             val action =
-                MnemonicPhraseFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
-                    128,
+                MnemonicLengthFragmentDirections.actionMnemonicPhraseFragmentToMnemonicFragment(
+                    16, // 128 bits
                     12
                 )
             findNavController().navigate(action)

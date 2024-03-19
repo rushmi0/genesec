@@ -97,9 +97,9 @@
 
     <fragment
         android:id="@+id/mnemonicPhraseFragment"
-        android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment"
+        android:name="win.notoshi.genesec.viewmodel.fragments.MnemonicLengthFragment"
         android:label="fragment_mnemonic_phrase"
-        tools:layout="@layout/fragment_mnemonic_phrase">
+        tools:layout="@layout/fragment_mnemonic_length">
         <action
             android:id="@+id/action_mnemonicPhraseFragment_to_mnemonicFragment"
             app:destination="@id/mnemonicFragment"
@@ -119,6 +119,10 @@
         <argument
             android:name="wordLength"
             app:argType="integer" />
+
+        <action
+            android:id="@+id/action_mnemonicFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
 
     </fragment>
 

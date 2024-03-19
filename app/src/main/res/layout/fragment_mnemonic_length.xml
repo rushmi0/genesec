@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="win.notoshi.genesec.viewmodel.fragments.MnemonicPhraseFragment">
+    tools:context="win.notoshi.genesec.viewmodel.fragments.MnemonicLengthFragment">
 
 
     <androidx.cardview.widget.CardView

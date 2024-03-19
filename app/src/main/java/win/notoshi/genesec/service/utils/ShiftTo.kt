@@ -1,12 +1,14 @@
 package win.notoshi.genesec.service.utils
 
 import win.notoshi.genesec.model.utils.toBech32Data
+import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToHex
 import java.math.BigInteger
 import java.security.MessageDigest
 
 object ShiftTo {
 
     private val hexDigits: String = "0123456789abcdef"
+
 
     fun String.BinaryToByteArray(): ByteArray {
         return this.chunked(8).map { it.toInt(2).toByte() }.toByteArray()
@@ -20,9 +22,23 @@ object ShiftTo {
         return BigInteger(1, this)
     }
 
+
     fun ByteArray.ByteArrayToHex(): String {
-        return joinToString("") { byte -> byte.toUByte().toString(16).padStart(2, '0') }
+        //return joinToString("") { byte -> byte.toUByte().toString(16).padStart(2, '0') }
+        return this.joinToString("") { byte -> "%02x".format(byte) }
     }
+
+
+    fun ByteArray.toBinaryString(): String {
+        val binaryString = StringBuilder()
+        for (byte in this) {
+            for (i in 7 downTo 0) {
+                binaryString.append((byte.toInt() shr i) and 1)
+            }
+        }
+        return binaryString.toString()
+    }
+
 
     fun String.HexToByteArray(): ByteArray = ByteArray(this.length / 2) { this.substring(it * 2, it * 2 + 2).toInt(16).toByte() }
 
