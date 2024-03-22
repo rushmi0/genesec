@@ -58,9 +58,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/clothingImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/lato"
+                        android:layout_marginTop="5dp"
                         android:text="Key Pair"
+                        android:textStyle="normal|bold"
+                        android:fontFamily="@font/grandstander_light"
                         android:textColor="#272323"
                         android:textSize="20sp" />
 
@@ -95,9 +96,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/elecImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/lato"
+                        android:layout_marginTop="5dp"
                         android:text="Mnemonic"
+                        android:textStyle="normal|bold"
+                        android:fontFamily="@font/grandstander_light"
                         android:textColor="#272323"
                         android:textSize="20sp" />
 
@@ -140,7 +142,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/contract_stroke">
+                    android:background="@drawable/utxo_stroke">
 
                     <TextView
                         android:id="@+id/homeName"
@@ -148,9 +150,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/homeImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/lato"
+                        android:layout_marginTop="5dp"
                         android:text="Contract"
+                        android:textStyle="normal|bold"
+                        android:fontFamily="@font/grandstander_light"
                         android:textColor="#272323"
                         android:textSize="20sp" />
 
