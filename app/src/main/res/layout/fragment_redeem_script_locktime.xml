@@ -3,15 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
+    android:background="#A4BDF7"
     android:layout_gravity="center"
-    android:layout_height="370dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="win.notoshi.genesec.viewmodel.fragments.RedeemScriptLockTimeFragment">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="348dp"
-        android:layout_height="360dp"
+        android:layout_height="350dp"
         app:cardCornerRadius="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,16 +30,28 @@
                 android:background="#98A8F8"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <ImageView
+                android:id="@+id/toBackPage"
+                android:layout_width="32dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/tap"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="247dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="11dp"
                 android:gravity="center"
-                android:text="Contract"
+                android:text="Time Locked"
                 android:textColor="#FAF7F0"
                 android:textSize="30sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +63,7 @@
                 android:layout_width="32dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="11dp"
-                android:src="@drawable/baseline_close_24"
+                android:src="@drawable/back"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -62,25 +75,27 @@
                 android:id="@+id/redeemDesc"
                 android:layout_width="300dp"
                 android:layout_height="34dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:text="Redeem Script"
                 android:textColor="#000000"
                 android:textSize="17sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.53"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addrView" />
+                app:layout_constraintTop_toBottomOf="@+id/addrViewiii" />
 
             <TextView
                 android:id="@+id/addrDesc"
                 android:layout_width="301dp"
                 android:layout_height="34dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="15dp"
                 android:text="P2SH for receive"
                 android:textColor="#000000"
                 android:textSize="17sp"
-                android:textStyle="normal"
+                android:textStyle="normal|bold"
+                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.53"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,12 +104,13 @@
             <!--            android:layout_height="48dp"-->
 
             <TextView
-                android:id="@+id/addrView"
+                android:id="@+id/addrViewiii"
                 android:layout_width="210dp"
                 android:layout_height="50dp"
                 android:background="@drawable/block_contract_green"
                 android:gravity="start|center_vertical"
                 android:maxLines="1"
+                android:layout_marginTop="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.185"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,33 +120,81 @@
                 android:id="@+id/copyAddr"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/copygreen"
-                app:layout_constraintStart_toEndOf="@+id/addrView"
+                app:layout_constraintStart_toEndOf="@+id/addrViewiii"
                 app:layout_constraintTop_toBottomOf="@+id/addrDesc" />
 
             <ImageView
                 android:id="@+id/qrcodeAddr"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
                 android:src="@drawable/qrcodegreeni"
                 app:layout_constraintStart_toEndOf="@+id/copyAddr"
-                app:layout_constraintTop_toTopOf="@+id/addrView" />
+                app:layout_constraintTop_toTopOf="@+id/addrViewiii" />
 
             <TextView
-                android:id="@+id/redeemView"
-                android:layout_width="297dp"
-                android:layout_height="117dp"
+                android:id="@+id/redeemViewii"
+                android:layout_width="250dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/block_contract_green"
                 android:gravity="start|center_vertical"
                 android:inputType="number"
-
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.255"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/redeemDesc" />
+
+            <ImageView
+                android:id="@+id/qrcodeRedeem"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/qrcodegreeni"
+                app:layout_constraintStart_toEndOf="@+id/redeemViewii"
+                app:layout_constraintTop_toBottomOf="@+id/redeemDesc" />
+
+            <ImageView
+                android:id="@+id/copyRedeem"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/copygreen"
+                app:layout_constraintStart_toEndOf="@+id/redeemViewii"
+                app:layout_constraintTop_toBottomOf="@+id/qrcodeRedeem" />
+
+            <TextView
+                android:id="@+id/addrView"
+                android:layout_width="183dp"
+                android:layout_height="33dp"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:ellipsize="middle"
+                android:textStyle="normal"
+                android:fontFamily="@font/grandstander_light"
+                app:layout_constraintBottom_toBottomOf="@+id/addrViewiii"
+                app:layout_constraintEnd_toEndOf="@+id/addrViewiii"
+                app:layout_constraintStart_toStartOf="@+id/addrViewiii"
+                app:layout_constraintTop_toTopOf="@+id/addrViewiii" />
+
+            <TextView
+                android:id="@+id/redeemView"
+                android:layout_width="221dp"
+                android:layout_height="90dp"
+                android:maxLines="6"
+                android:textStyle="normal"
+                android:ellipsize="middle"
+                android:fontFamily="@font/grandstander_light"
+                app:layout_constraintBottom_toBottomOf="@+id/redeemViewii"
+                app:layout_constraintEnd_toEndOf="@+id/redeemViewii"
+                app:layout_constraintStart_toStartOf="@+id/redeemViewii"
+                app:layout_constraintTop_toTopOf="@+id/redeemViewii" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

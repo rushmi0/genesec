@@ -41,7 +41,11 @@
         android:id="@+id/nostrKeyFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.NostrKeyFragment"
         android:label="fragment_nostr_key"
-        tools:layout="@layout/fragment_nostr_key" />
+        tools:layout="@layout/fragment_nostr_key" >
+        <action
+            android:id="@+id/action_nostrKeyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 
     <fragment
@@ -66,7 +70,11 @@
         android:id="@+id/WIFKeyFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.WIFKeyFragment"
         android:label="fragment_wif_key"
-        tools:layout="@layout/fragment_wif_key" />
+        tools:layout="@layout/fragment_wif_key" >
+        <action
+            android:id="@+id/action_WIFKeyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lockTimeContractFragment"
         android:name="win.notoshi.genesec.viewmodel.fragments.LockTimeContractFragment"
@@ -91,6 +99,9 @@
         <argument
             android:name="blockNumber"
             app:argType="string" />
+        <action
+            android:id="@+id/action_redeemScriptLockTimeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
 
     </fragment>
 

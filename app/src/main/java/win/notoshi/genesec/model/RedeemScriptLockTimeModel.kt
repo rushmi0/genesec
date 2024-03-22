@@ -7,12 +7,16 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import fr.acinq.bitcoin.Bitcoin
+import fr.acinq.bitcoin.Block
+import fr.acinq.bitcoin.Script
+import fr.acinq.bitcoin.ScriptElt
+import fr.acinq.secp256k1.Hex
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import win.notoshi.genesec.model.record.RedeemScriptRecord
 import win.notoshi.genesec.service.nimiscript.ScriptBuilder
-import win.notoshi.genesec.service.transaction.Address.getP2SH
 import win.notoshi.genesec.service.utils.ShiftTo.HexToByteArray
 
 class RedeemScriptLockTimeModel @Inject constructor(val context: Context) : ViewModel() {
@@ -40,8 +44,14 @@ class RedeemScriptLockTimeModel @Inject constructor(val context: Context) : View
 
     fun processBuildContract() = notifyRedeemScriptChanged()
 
+
     private fun buildLockingScript(): String {
-        this.address = redeemScript.getP2SH("main")
+        val redeemScript = this.redeemScript
+        val bytes = Hex.decode(redeemScript)
+        val result: List<ScriptElt> = Script.parse(bytes)
+
+        val script = Script.pay2sh(result)
+        this.address = Bitcoin.addressFromPublicKeyScript(Block.LivenetGenesisBlock.hash, script).right!!
         return this.address
     }
 

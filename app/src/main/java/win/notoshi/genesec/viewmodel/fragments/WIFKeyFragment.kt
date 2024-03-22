@@ -54,10 +54,19 @@ class WIFKeyFragment : Fragment(R.layout.fragment_wif_key) {
         return binding.root
     }
 
+
     private fun setupViews() {
+        toBackPage()
         toKeyTypePage()
         newKeyPair()
         observeWIFKeyPair()
+    }
+
+    private fun toBackPage() {
+        setupPushDownAnim(binding.toBackPage)
+        binding.toBackPage.setOnClickListener {
+            findNavController().navigate(WIFKeyFragmentDirections.actionWIFKeyFragmentToHomeFragment())
+        }
     }
 
     private fun toKeyTypePage() {

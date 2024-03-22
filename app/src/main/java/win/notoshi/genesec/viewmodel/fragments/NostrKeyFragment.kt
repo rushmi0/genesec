@@ -12,7 +12,6 @@ import android.graphics.drawable.ColorDrawable
 import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -57,9 +55,18 @@ class NostrKeyFragment : Fragment(R.layout.fragment_nostr_key) {
     }
 
     private fun setupViews() {
+        toBackPage()
         toKeyTypePage()
         newKeyPair()
         observeNostrKeyPair()
+    }
+
+
+    private fun toBackPage() {
+        setupPushDownAnim(binding.toBackPage)
+        binding.toBackPage.setOnClickListener {
+            findNavController().navigate(NostrKeyFragmentDirections.actionNostrKeyFragmentToHomeFragment())
+        }
     }
 
     private fun toKeyTypePage() {

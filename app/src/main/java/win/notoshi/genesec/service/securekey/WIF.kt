@@ -2,12 +2,14 @@ package win.notoshi.genesec.service.securekey
 
 import win.notoshi.genesec.service.securekey.WIF.extractWIF
 import win.notoshi.genesec.service.securekey.WIF.toWIF
+import win.notoshi.genesec.service.transaction.Address
 import win.notoshi.genesec.service.utils.ShiftTo.ByteArrayToHex
 import win.notoshi.genesec.service.utils.ShiftTo.HexToByteArray
 import win.notoshi.genesec.service.utils.ShiftTo.decodeBase58
 import win.notoshi.genesec.service.utils.ShiftTo.encodeBase58
 import win.notoshi.genesec.service.transaction.Address.verify.getChecksum
 import win.notoshi.genesec.service.transaction.Network
+import win.notoshi.genesec.service.utils.ShiftTo.SHA256
 
 
 object WIF {
@@ -123,6 +125,15 @@ object WIF {
     fun String.extractWIF(): String {
         val data = this.decodeBase58().HexToByteArray()
         return data.copyOfRange(1, 33).ByteArrayToHex()
+    }
+
+    fun ByteArray.getChecksum(): ByteArray {
+        return checksum(this)
+    }
+
+    private fun checksum(data: ByteArray): ByteArray {
+        val hash = data.SHA256().SHA256()
+        return hash.sliceArray(0 .. 4)
     }
 
 }

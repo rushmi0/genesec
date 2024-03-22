@@ -7,6 +7,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import fr.acinq.bitcoin.PrivateKey
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +18,7 @@ import win.notoshi.genesec.service.securekey.ECKeyProvider.compressed
 import win.notoshi.genesec.service.securekey.ECKeyProvider.toPublicKey
 import win.notoshi.genesec.service.securekey.Secp256K1
 import win.notoshi.genesec.service.securekey.WIF.toWIF
+import win.notoshi.genesec.service.utils.ShiftTo.shortenString
 import kotlin.random.Random
 
 class WIFKeyModel @Inject constructor(val context: Context) : ViewModel() {
@@ -38,8 +40,11 @@ class WIFKeyModel @Inject constructor(val context: Context) : ViewModel() {
     )
 
     private fun notifyWIFKeyChanged() {
+        val privateKey = PrivateKey.fromHex(
+            privateKey()
+        )
         _WIF_KEY.value = WIFKeyRecord(
-            privateKey().toWIF("main", true),
+            privateKey.toBase58(0x80.toByte()),
             publicKey(),
         )
     }

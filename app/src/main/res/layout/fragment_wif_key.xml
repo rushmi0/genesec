@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context="win.notoshi.genesec.viewmodel.fragments.WIFKeyFragment">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="348dp"
         android:layout_height="370dp"
@@ -51,6 +52,17 @@
             <!--                  # Private Key #                    -->
 
             <!-- ################################################### -->
+
+            <ImageView
+                android:id="@+id/toBackPage"
+                android:layout_width="32dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/tap"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/privateKeyDesc"
@@ -176,13 +188,13 @@
                 android:id="@+id/newKeytBTN"
                 android:layout_width="153dp"
                 android:layout_height="52dp"
-                android:layout_marginTop="21dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/green_rounded_button"
+                android:fontFamily="@font/grandstander_light"
                 android:gravity="center"
                 android:text="New Key Pair"
                 android:textSize="20dp"
                 android:textStyle="normal|bold"
-                android:fontFamily="@font/grandstander_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"

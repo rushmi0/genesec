@@ -90,30 +90,6 @@ object ShiftTo {
         return this.bech32Encode(hrp)
     }
 
-    fun viewScript(scriptHex: String): List<Any> {
-        val decodedScript = mutableListOf<Any>()
-
-        var i = 0
-        while (i < scriptHex.length) {
-            val opcode = scriptHex.substring(i, i + 2).toInt(16)
-            i += 2
-
-            if (opcode < 0x4c) {
-                val data = scriptHex.substring(i, i + (opcode * 2))
-                i += opcode * 2
-                decodedScript.add(data)
-            } else if (opcode == 0x4c) {
-                val dataLength = scriptHex.substring(i, i + 2).toInt(16)
-                i += 2
-                val data = scriptHex.substring(i, i + (dataLength * 2))
-                i += dataLength * 2
-                decodedScript.add(data)
-            } else {
-                decodedScript.add(opcode)
-            }
-        }
-        return decodedScript
-    }
 
 
     fun String.shortenString(): String {

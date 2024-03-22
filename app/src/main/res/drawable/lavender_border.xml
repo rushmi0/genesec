@@ -7,6 +7,4 @@
         android:color="@color/lavender" />
 
     <corners android:radius="15dp" />
-
-
 </shape>

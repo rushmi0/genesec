@@ -11,7 +11,6 @@ import win.notoshi.genesec.service.transaction.Address.verify.getChecksum
 
 object Address {
 
-    private val CHAIN = Network
 
     private fun P2SH(network: String, data: String): String {
 
@@ -74,9 +73,9 @@ object Address {
     */
     object verify {
 
-        private fun findeChecksum(data: ByteArray): ByteArray {
+        fun findeChecksum(data: ByteArray): ByteArray {
             val hash = data.SHA256().SHA256()
-            return hash.sliceArray(0 until 4)
+            return hash.sliceArray(0 .. 4)
         }
 
         private fun P2PKH(address: String): Boolean {
@@ -85,7 +84,7 @@ object Address {
                 return false
             }
 
-            val checksum = findeChecksum(decodedAddress.sliceArray(0 until 21))
+            val checksum = findeChecksum(decodedAddress.sliceArray(0 .. 21))
             if (!decodedAddress.sliceArray(21 until 25).contentEquals(checksum)) {
                 return false
             }
